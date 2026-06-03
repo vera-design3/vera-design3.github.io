@@ -590,9 +590,8 @@ main .project a {
 
     .image-container img {
         width: 100%;
-        /* 將圖片寬度設定為 100% */
-        height: auto;
-        /* 自動計算高度，保持比例 */
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -603,16 +602,19 @@ main .project a {
 
 .image-container {
     position: relative;
-    display: inline-block;
+    display: block;
+    width: 100%;
     overflow: hidden;
-    height: fit-content;
+    /* 固定卡片比例，封面不論原始尺寸都統一大小 */
+    aspect-ratio: 1366 / 716;
 }
 
 .image-container img {
     display: block;
     transition: transform 0.3s ease;
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 
