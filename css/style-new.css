@@ -154,8 +154,9 @@ main.about { max-width: 1340px; margin: 0 auto; }
 }
 .about-social a:hover { border-color: var(--ink); }
 
-.exp-item { padding-bottom: 40px; }
-.exp-item:last-child { padding-bottom: 0; }
+.exp-item { padding: 32px 0; border-top: 1px dashed var(--line); }
+.exp-item:first-child { padding-top: 4px; border-top: none; }
+.exp-item:last-child { padding-bottom: 4px; }
 .exp-year { font-size: 13px; color: var(--muted); letter-spacing: 0.02em; }
 .exp-role { font-size: 18px; font-weight: 500; margin-top: 6px; letter-spacing: -0.01em; }
 .exp-org { font-size: 14px; color: #666; margin-top: 3px; }
