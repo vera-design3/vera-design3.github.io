@@ -12,22 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style-new.css">
+    <script src="./js/layout-new.js"></script>
 </head>
 
 <body>
-    <!-- 導覽列 -->
-    <header class="nav">
-        <div class="nav-inner">
-            <a href="./index-new.html" class="brand">Vera Liu <span>· Designer</span></a>
-            <nav class="nav-links">
-                <a href="./index-new.html">Projects</a>
-                <a href="./about.html">About</a>
-                <a href="./Vera Resume.pdf" target="_blank" rel="noopener">Resume</a>
-                <a href="mailto:vera83610942@gmail.com" class="nav-cta">Get in touch</a>
-            </nav>
-        </div>
-    </header>
-
     <main class="wrap">
         <!-- Hero -->
         <section class="hero">
@@ -113,23 +101,7 @@
         </section>
     </main>
 
-    <!-- 頁尾 -->
-    <footer class="foot">
-        <div class="wrap">
-            <p class="cta">想合作或聊聊？<br><a href="mailto:vera83610942@gmail.com">vera83610942@gmail.com</a></p>
-            <div class="foot-row">
-                <span>© <span id="yr"></span> Vera Liu — Taipei, Taiwan</span>
-                <span class="links">
-                    <a href="./about.html">About</a>
-                    <a href="https://www.behance.net/ruowei2020da6c" target="_blank" rel="noopener">Behance</a>
-                    <a href="https://www.linkedin.com/in/vera-liu-8b979a27a" target="_blank" rel="noopener">LinkedIn</a>
-                </span>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        document.getElementById('yr').textContent = new Date().getFullYear();
         const filters = document.querySelectorAll('.filters a');
         const cards = document.querySelectorAll('.grid .card');
         filters.forEach(f => f.addEventListener('click', () => {
