@@ -14,7 +14,7 @@
   --lime: #D7F367;
   --radius: 14px;
   --maxw: 1240px;
-  --pad: 40px;
+  --pad: 20px;
 }
 
 html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
@@ -95,7 +95,7 @@ img { display: block; max-width: 100%; }
 .filters a:hover, .filters a.active { color: var(--ink); }
 
 /* 3 欄、固定統一比例（直式，仿範例） */
-.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
 .card { display: block; }
 .card .thumb {
@@ -133,7 +133,6 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 760px) {
-  :root { --pad: 22px; }
   .nav-links { gap: 16px; }
   .nav-links a:not(.nav-cta) { display: none; }
   .hero { padding: 64px 0 48px; }
