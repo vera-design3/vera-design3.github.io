@@ -305,13 +305,16 @@ main.project { max-width: 1340px; margin: 0 auto; }
 .pkg-card {
   border: 1px solid var(--line); border-radius: 12px; padding: 24px 20px;
   display: flex; flex-direction: column; gap: 12px;
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  transition: transform .3s ease, background .3s ease, border-color .3s ease;
 }
 .pkg-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  background: rgba(215, 243, 103, 0.18);
   border-color: var(--lime);
 }
 .pkg-card.featured:hover {
+  transform: translateY(-6px);
+  background: #2a2a2a;
   border-color: var(--lime);
 }
 .pkg-tag {
