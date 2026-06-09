@@ -136,6 +136,11 @@ main.about { max-width: 1340px; margin: 0 auto; }
 .about-pagetitle {
   position: sticky; top: 88px;
   font-size: 1.8rem; font-weight: 600; letter-spacing: -0.03em;
+  display: flex; align-items: center; gap: 10px;
+}
+.about-pagetitle::before {
+  content: ""; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--lime); flex-shrink: 0;
 }
 .about-content { display: flex; flex-direction: column; }
 .about-row { display: grid; grid-template-columns: 150px 1fr; gap: 48px; padding: 44px 0; }
@@ -256,11 +261,15 @@ main.project { max-width: 1340px; margin: 0 auto; }
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 700; line-height: 1.4; letter-spacing: 0.01em;
 }
-.about-statement-zh em { font-style: normal; color: var(--muted); font-weight: 500; }
+.about-statement-zh em {
+  font-style: normal; font-weight: 700;
+  background: var(--lime); padding: 0 5px 2px; border-radius: 3px;
+  color: var(--ink);
+}
 
 /* 數字統計 */
 .about-stats { display: flex; flex-wrap: wrap; gap: 28px 56px; }
-.about-stat { }
+.about-stat { border-top: 3px solid var(--lime); padding-top: 14px; }
 .about-stat-num {
   font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700;
   letter-spacing: -0.04em; line-height: 1; color: var(--ink);
