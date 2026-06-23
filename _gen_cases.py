@@ -128,8 +128,8 @@ PAGE = '''<!DOCTYPE html>
     <meta property="og:title" content="{title}" />
     <meta property="og:description" content="{desc}" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ruowei-liu.github.io/{out}" />
-    <meta property="og:image" content="https://ruowei-liu.github.io/{ogimg}" />
+    <meta property="og:url" content="https://vera-design3.github.io/{out}" />
+    <meta property="og:image" content="https://vera-design3.github.io/{ogimg}" />
     <link href="./images/index/apple.png" rel="apple-touch-icon" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
