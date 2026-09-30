@@ -24,8 +24,10 @@
 <style>
 :root{
   --paper:#FAF8F4;
-  --ink:#191714;
-  --ink-2:#6B6660;
+  --ink:#1A1815;
+  --ink-2:#8A847B;
+  --ink-3:#3D3933;
+  --ink-4:#565048;
   --rule:#DDD7CC;
   --rule-soft:#EBE6DC;
   --accent:#2E4A3B;
@@ -38,7 +40,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{
   background:var(--paper);color:var(--ink);font-family:var(--sans);
-  font-size:15.5px;line-height:1.78;-webkit-font-smoothing:antialiased;
+  font-size:15px;line-height:1.85;letter-spacing:.02em;-webkit-font-smoothing:antialiased;
   font-feature-settings:"tnum" 0;
 }
 a{color:inherit}
@@ -48,11 +50,11 @@ a{color:inherit}
 .masthead{border-bottom:1px solid var(--ink);position:sticky;top:0;z-index:40;background:var(--paper)}
 .masthead .in{max-width:var(--col);margin:0 auto;padding:16px 32px;
   display:flex;align-items:baseline;justify-content:space-between;gap:24px}
-.logo{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.01em;text-decoration:none}
+.logo{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:.03em;text-decoration:none}
 .logo i{font-style:normal;font-family:var(--sans);font-size:12px;font-weight:500;
   color:var(--ink-2);margin-left:9px;letter-spacing:.08em}
 .masthead nav{display:flex;gap:26px;align-items:baseline}
-.masthead nav a{font-size:13.5px;color:var(--ink-2);text-decoration:none;
+.masthead nav a{font-size:13px;color:var(--ink-2);text-decoration:none;letter-spacing:.03em;
   padding-bottom:2px;border-bottom:1px solid transparent;transition:.15s}
 .masthead nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 .masthead nav a.lead{color:var(--ink);font-weight:500;border-bottom-color:var(--accent);border-bottom-width:2px}
@@ -61,19 +63,19 @@ a{color:inherit}
 
 /* ── Hero ───────────────────────────── */
 .opening{padding:84px 0 56px;border-bottom:3px double var(--rule)}
-.standfirst{font-family:var(--sans);font-size:12.5px;letter-spacing:.06em;
-  color:var(--ink-2);margin-bottom:26px}
+.standfirst{font-family:var(--sans);font-size:12px;letter-spacing:.09em;font-weight:500;
+  color:var(--ink-2);margin-bottom:24px}
 .opening h1{
   font-family:var(--serif);font-weight:600;
-  font-size:clamp(34px,6.2vw,66px);line-height:1.26;letter-spacing:.005em;
+  font-size:clamp(29px,3.9vw,42px);line-height:1.5;letter-spacing:.015em;
   max-width:none;
 }
 .opening .deck{
-  margin-top:30px;max-width:44ch;font-size:16px;line-height:1.85;color:#413D37;
+  margin-top:28px;max-width:40ch;font-size:15px;line-height:1.9;color:var(--ink-4);
   border-left:2px solid var(--accent);padding-left:20px;
 }
 .acts{margin-top:38px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
-.act{font-size:15px;font-weight:600;text-decoration:none;padding:13px 28px;
+.act{font-size:14px;font-weight:500;text-decoration:none;padding:14px 30px;letter-spacing:.04em;
   border:1px solid var(--ink);background:var(--ink);color:var(--paper);transition:.18s}
 .act:hover{background:transparent;color:var(--ink)}
 .act.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
@@ -82,24 +84,24 @@ a{color:inherit}
 /* ── 通用區段：不對稱雙欄 ─────────────── */
 .part{display:grid;grid-template-columns:230px 1fr;gap:56px;
   padding:72px 0;border-bottom:1px solid var(--rule)}
-.part > .side h2{font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.4;letter-spacing:.01em}
-.part > .side p{margin-top:14px;font-size:14px;line-height:1.8;color:var(--ink-2)}
+.part > .side h2{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1.45;letter-spacing:.015em}
+.part > .side p{margin-top:16px;font-size:13px;line-height:1.9;color:var(--ink-4)}
 .part > .side p strong{color:var(--ink);font-weight:500}
 .body{min-width:0}
 
 /* ── 報價 ───────────────────────────── */
 .set + .set{margin-top:44px}
-.set > h3{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:.01em;
+.set > h3{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:.02em;
   padding-bottom:9px;border-bottom:1px solid var(--ink)}
-.set > .gloss{margin-top:11px;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
-.set > .gloss strong{color:var(--ink);font-weight:700}
+.set > .gloss{margin-top:12px;font-size:13px;line-height:1.9;color:var(--ink-4)}
+.set > .gloss strong{color:var(--ink);font-weight:500}
 
 .line{display:flex;align-items:baseline;justify-content:space-between;gap:24px;
   padding:16px 0;border-bottom:1px solid var(--rule-soft)}
 .line:first-of-type{border-top:none}
-.what{font-size:15.5px;font-weight:500;flex:1;min-width:0}
-.what span{display:block;font-weight:400;font-size:13px;color:var(--ink-2);margin-top:4px;line-height:1.7}
-.fig{font-family:var(--sans);font-size:16px;font-weight:600;white-space:nowrap;
+.what{font-size:15px;font-weight:500;flex:1;min-width:0;letter-spacing:.02em}
+.what span{display:block;font-weight:400;font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.8}
+.fig{font-family:var(--sans);font-size:16px;font-weight:500;white-space:nowrap;
   font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 .fig u{text-decoration:none;font-size:12px;font-weight:400;color:var(--ink-2);margin-left:4px}
 
@@ -107,12 +109,12 @@ a{color:inherit}
 .tiers{margin-top:8px}
 .tiers .hd{display:grid;grid-template-columns:1fr 126px 142px;gap:16px;
   padding:9px 0;border-bottom:1px solid var(--ink)}
-.tiers .hd span{font-size:11.5px;color:var(--ink-2);text-align:right;letter-spacing:.04em}
+.tiers .hd span{font-size:11px;color:var(--ink-2);text-align:right;letter-spacing:.08em;font-weight:500}
 .tiers .hd span:first-child{text-align:left}
 .tier{display:grid;grid-template-columns:1fr 126px 142px;gap:16px;align-items:center;
   padding:17px 0;border-bottom:1px solid var(--rule-soft)}
 .tier .cell{text-align:right;white-space:nowrap}
-.tier .cell b{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.tier .cell b{font-size:16px;font-weight:500;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 .tier .cell u{text-decoration:none;font-size:12px;font-weight:400;color:var(--ink-2);margin-left:3px}
 .tier.pick{background:linear-gradient(to right,rgba(46,74,59,.045),transparent 72%);
   box-shadow:inset 3px 0 0 var(--accent);padding-left:16px;margin-left:-16px}
@@ -122,13 +124,13 @@ a{color:inherit}
 
 /* 條件 */
 .terms{margin-top:46px;padding-top:22px;border-top:3px double var(--rule)}
-.terms h3{font-family:var(--serif);font-size:16px;font-weight:600;margin-bottom:14px}
+.terms h3{font-family:var(--serif);font-size:16px;font-weight:600;margin-bottom:16px;letter-spacing:.02em}
 .terms ol{list-style:none;counter-reset:t;display:grid;gap:10px}
-.terms li{counter-increment:t;font-size:13.5px;line-height:1.8;color:#413D37;
+.terms li{counter-increment:t;font-size:13px;line-height:1.9;color:var(--ink-4);
   padding-left:26px;position:relative}
 .terms li::before{content:counter(t,decimal-leading-zero);position:absolute;left:0;top:1px;
   font-size:11px;color:var(--ink-2);font-variant-numeric:tabular-nums}
-.terms li strong{font-weight:700;color:var(--ink)}
+.terms li strong{font-weight:500;color:var(--ink)}
 
 /* ── 流程：真的是序列，所以編號 ─────────── */
 .steps{counter-reset:s;display:grid;gap:0}
@@ -136,17 +138,17 @@ a{color:inherit}
   padding:22px 0;border-bottom:1px solid var(--rule-soft)}
 .step:last-child{border-bottom:none}
 .step::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);
-  font-size:26px;font-weight:500;color:var(--rule);line-height:1;padding-top:3px}
-.step h4{font-size:16px;font-weight:600;letter-spacing:.005em}
-.step p{margin-top:7px;font-size:13.5px;line-height:1.8;color:var(--ink-2);max-width:56ch}
+  font-size:22px;font-weight:500;color:var(--rule);line-height:1;padding-top:4px}
+.step h4{font-size:15px;font-weight:500;letter-spacing:.02em}
+.step p{margin-top:8px;font-size:13px;line-height:1.9;color:var(--ink-4);max-width:52ch}
 
 /* ── 聯絡 ───────────────────────────── */
 .close{padding:78px 0 0}
-.close h2{font-family:var(--serif);font-size:clamp(25px,4vw,38px);font-weight:600;
-  line-height:1.4;max-width:19ch}
-.close p{margin-top:18px;max-width:46ch;font-size:15.5px;color:#413D37}
+.close h2{font-family:var(--serif);font-size:clamp(24px,3.2vw,32px);font-weight:600;
+  line-height:1.5;letter-spacing:.015em;max-width:20ch}
+.close p{margin-top:18px;max-width:42ch;font-size:15px;line-height:1.9;color:var(--ink-4)}
 .reach{margin-top:34px;display:flex;gap:40px;flex-wrap:wrap}
-.reach a{font-size:16px;font-weight:600;text-decoration:none;
+.reach a{font-size:15px;font-weight:500;text-decoration:none;
   border-bottom:2px solid var(--accent);padding-bottom:4px;transition:.18s}
 .reach a:hover{border-bottom-color:var(--ink)}
 .reach a em{display:block;font-style:normal;font-size:12px;font-weight:400;
@@ -169,7 +171,7 @@ a{color:inherit}
   .masthead nav a.hide-s{display:none}
   .shell{padding:0 20px 80px}
   .opening{padding:52px 0 40px}
-  .opening h1{font-size:clamp(27px,7.6vw,38px);line-height:1.38}
+  .opening h1{font-size:clamp(26px,6.6vw,32px);line-height:1.52}
   .opening h1 br{display:none}
   .opening .deck{font-size:15px;padding-left:16px}
   .acts{gap:14px}
@@ -205,7 +207,7 @@ a{color:inherit}
   <section class="opening">
     <p class="standfirst">台北，接案中</p>
     <h1>從網站到視覺，<br>設計品牌被看見的每一刻</h1>
-    <p class="deck">為值得被記住的品牌，打造專屬視覺。以網站設計為核心，延伸品牌視覺、社群素材與數位推廣。從資訊梳理到視覺呈現，打造一致、清楚且具辨識度的品牌形象。</p>
+    <p class="deck">以網站設計為核心，延伸品牌視覺與社群素材。把資訊梳理清楚，讓品牌有一致、好認的樣子。</p>
     <div class="acts">
       <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="act">聊聊你的需求</a>
       <a href="./projects/" class="act ghost">看作品集</a>
@@ -215,71 +217,69 @@ a{color:inherit}
   <section class="part" id="pricing">
     <div class="side">
       <h2>服務與報價</h2>
-      <p>依需求規模選擇：<strong>單次委託</strong>、<strong>網站專案</strong>，或<strong>包月合作</strong>。常見項目的價格直接列出來，不用來回問。</p>
-      <p>不確定適合哪一種，直接聊聊，我會告訴你怎麼配比較省。</p>
+      <p><strong>單次委託</strong>、<strong>網站專案</strong>，或<strong>包月合作</strong>。價格直接列出來，不確定適合哪一種就直接聊，我會告訴你怎麼配比較省。</p>
     </div>
     <div class="body">
 
       <div class="set">
         <h3>網站設計</h3>
-        <p class="gloss">從設計到切版，交付可直接上線的靜態網頁，含 SEO 基礎設定。</p>
+        <p class="gloss">交付可直接上線的靜態網頁，含 SEO 基礎設定。</p>
         <div class="line">
           <span class="what">一頁式網站<span>單頁形象站、產品介紹頁</span></span>
           <span class="fig">NT$ 15,000<u>起</u></span>
         </div>
         <div class="line">
-          <span class="what">品牌形象網站<span>3–5 頁，含首頁與內頁版型</span></span>
+          <span class="what">品牌形象網站<span>3–5 頁</span></span>
           <span class="fig">NT$ 35,000<u>起</u></span>
         </div>
       </div>
 
       <div class="set">
         <h3>廣告與社群視覺</h3>
-        <p class="gloss">單次委託。長期穩定出圖走下方的包月方案，單張成本較低。</p>
+        <p class="gloss">單次委託；長期穩定出圖走包月更省。</p>
         <div class="line">
-          <span class="what">廣告圖、Banner、社群貼文視覺<span>單一尺寸，3 張起接</span></span>
+          <span class="what">廣告圖、Banner、社群貼文視覺<span>3 張起接</span></span>
           <span class="fig">NT$ 1,000<u>／張</u></span>
         </div>
         <div class="line">
-          <span class="what">Landing Page<span>廣告活動落地頁，轉換導向</span></span>
+          <span class="what">Landing Page<span>廣告活動落地頁</span></span>
           <span class="fig">NT$ 15,000<u>起</u></span>
         </div>
       </div>
 
       <div class="set">
         <h3>包月合作</h3>
-        <p class="gloss"><strong>月結、不綁約</strong>，可隨時調整級距或暫停。風格長期一致，省去每次重新說明品牌背景的時間。</p>
+        <p class="gloss"><strong>月結、不綁約</strong>，可隨時調整或暫停。風格長期一致，不用每次重講品牌背景。</p>
         <div class="tiers">
           <div class="hd"><span>方案</span><span>純視覺</span><span>含行銷規劃</span></div>
           <div class="tier">
-            <span class="what">每週 1 張<span>每月 4 張圖</span></span>
+            <span class="what">每月 4 張</span>
             <span class="cell" data-k="純視覺"><b>NT$ 3,900</b><u>／月</u></span>
             <span class="cell" data-k="含行銷規劃"><b>NT$ 6,200</b><u>／月</u></span>
           </div>
           <div class="tier">
-            <span class="what">每週 2 張<span>每月 8 張圖</span></span>
+            <span class="what">每月 8 張</span>
             <span class="cell" data-k="純視覺"><b>NT$ 7,600</b><u>／月</u></span>
             <span class="cell" data-k="含行銷規劃"><b>NT$ 11,400</b><u>／月</u></span>
           </div>
           <div class="tier pick">
-            <span class="what">每週 3 張<span class="pin">最多人選</span><span>每月 12 張圖</span></span>
+            <span class="what">每月 12 張<span class="pin">最多人選</span></span>
             <span class="cell" data-k="純視覺"><b>NT$ 11,200</b><u>／月</u></span>
             <span class="cell" data-k="含行銷規劃"><b>NT$ 16,400</b><u>／月</u></span>
           </div>
           <div class="tier">
-            <span class="what">每週 4 張<span>每月 16 張圖</span></span>
+            <span class="what">每月 16 張</span>
             <span class="cell" data-k="純視覺"><b>NT$ 14,400</b><u>／月</u></span>
             <span class="cell" data-k="含行銷規劃"><b>NT$ 20,400</b><u>／月</u></span>
           </div>
         </div>
-        <p class="foot-note">純視覺是你給方向與文案、我出圖；含行銷規劃則是主題安排、內容方向與文案一起做。</p>
+        <p class="foot-note">純視覺＝你給方向與文案；含行銷規劃＝主題與文案一起做。</p>
       </div>
 
       <div class="set">
         <h3>延伸合作</h3>
-        <p class="gloss">需要的話可以一起處理，不用另外找人對接。</p>
         <div class="line">
-          <span class="what">廣告投放<span>可配合投放夥伴，素材與投放一起顧</span></span>
+          <span class="what">廣告投放<span>可配合投放夥伴</span></span>
           <span class="fig">可合作洽談</span>
         </div>
       </div>
@@ -287,12 +287,12 @@ a{color:inherit}
       <div class="terms">
         <h3>合作條件</h3>
         <ol>
-          <li>單項委託最低承接金額 NT$ 3,000。</li>
-          <li>報價含 2 次修改，第 3 次起按時計費。</li>
-          <li>一般交期 7–14 個工作天；急件（7 天內）加收 30%，視檔期接受。</li>
-          <li>包月採月結、<strong>不綁約</strong>，可隨時調整級距或暫停；首月建立風格與版型系統。</li>
-          <li>包月交付可直接發布的成品圖檔；單項委託完稿含原始檔。</li>
-          <li>以上為常見區間，實際報價依專案範圍與商業用途評估。</li>
+          <li>單項委託最低承接 NT$ 3,000。</li>
+          <li>含 2 次修改，第 3 次起按時計費。</li>
+          <li>交期 7–14 個工作天；急件（7 天內）加收 30%。</li>
+          <li>包月月結<strong>不綁約</strong>，首月建立風格與版型系統。</li>
+          <li>包月交付成品圖檔；單項委託含原始檔。</li>
+          <li>以上為常見區間，實際依專案範圍報價。</li>
         </ol>
       </div>
 
@@ -302,32 +302,32 @@ a{color:inherit}
   <section class="part" id="process">
     <div class="side">
       <h2>合作流程</h2>
-      <p>從第一次聊到交付，你會知道每個階段在發生什麼。</p>
+      <p>從第一次聊到交付，每個階段都知道在發生什麼。</p>
     </div>
     <div class="body">
       <div class="steps">
         <div class="step">
           <div>
             <h4>諮詢與報價</h4>
-            <p>說明需求與時程，我回覆做法建議與報價，確認範圍後開始。</p>
+            <p>說明需求與時程，我回覆做法與報價。</p>
           </div>
         </div>
         <div class="step">
           <div>
             <h4>需求對焦</h4>
-            <p>釐清目標受眾、想傳達什麼、參考風格，先把方向講清楚再動手。</p>
+            <p>釐清受眾、訴求與參考風格，方向先講清楚再動手。</p>
           </div>
         </div>
         <div class="step">
           <div>
             <h4>設計執行</h4>
-            <p>提案初稿、依回饋調整。修改次數與範圍在報價時就寫清楚。</p>
+            <p>提案初稿、依回饋調整，修改範圍報價時就寫明。</p>
           </div>
         </div>
         <div class="step">
           <div>
             <h4>交付與後續</h4>
-            <p>交付可直接使用的成品檔。網站案含上線前檢查與交接說明。</p>
+            <p>交付可直接使用的檔案；網站案含上線檢查與交接。</p>
           </div>
         </div>
       </div>
@@ -336,7 +336,7 @@ a{color:inherit}
 
   <section class="close" id="contact">
     <h2>有想做的東西，先聊聊看</h2>
-    <p>不用先想清楚所有細節。告訴我你想解決什麼，我會給你做法建議與大概的預算級距。</p>
+    <p>不用先想清楚細節。告訴我你想解決什麼，我會給你做法建議與預算級距。</p>
     <div class="reach">
       <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener"><em>LINE</em>@208bjlaw</a>
       <a href="mailto:vera83610942@gmail.com"><em>Email</em>vera83610942@gmail.com</a>
