@@ -133,14 +133,26 @@ a{color:inherit}
 .terms li strong{font-weight:500;color:var(--ink)}
 
 /* ── 流程：真的是序列，所以編號 ─────────── */
-.steps{counter-reset:s;display:grid;gap:0}
-.step{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:20px;
-  padding:22px 0;border-bottom:1px solid var(--rule-soft)}
+.steps{position:relative;padding-left:40px}
+.steps .rail-bg,.steps .rail-on{position:absolute;left:4px;top:14px;width:1px}
+.steps .rail-bg{height:0;background:var(--rule)}
+.steps .rail-on{height:0;background:var(--accent);transition:height .65s cubic-bezier(.33,.9,.3,1)}
+.step{position:relative;padding:24px 0;border-bottom:1px solid var(--rule-soft)}
 .step:last-child{border-bottom:none}
-.step::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);
-  font-size:22px;font-weight:500;color:var(--rule);line-height:1;padding-top:4px}
+.step .dot{position:absolute;left:-40px;top:30px;width:9px;height:9px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--rule);transition:background .35s,border-color .35s,transform .35s}
+.step.on .dot{background:var(--accent);border-color:var(--accent);transform:scale(1.2)}
+.step .hd{display:flex;align-items:baseline;gap:12px}
+.step .num{font-family:var(--serif);font-size:15px;font-weight:500;color:var(--rule);
+  transition:color .35s;font-variant-numeric:tabular-nums}
+.step.on .num{color:var(--accent)}
 .step h4{font-size:15px;font-weight:500;letter-spacing:.02em}
 .step p{margin-top:8px;font-size:13px;line-height:1.9;color:var(--ink-4);max-width:52ch}
+@media (prefers-reduced-motion:reduce){
+  .steps .rail-on{height:100%!important;transition:none}
+  .step .dot{background:var(--accent);border-color:var(--accent)}
+  .step .num{color:var(--accent)}
+}
 
 /* ── 聯絡 ───────────────────────────── */
 .close{padding:78px 0 0}
@@ -182,8 +194,8 @@ a{color:inherit}
   .tier .cell::before{content:attr(data-k);font-size:12.5px;color:var(--ink-2);font-weight:400}
   .tier.pick{padding:18px 0 18px 14px;margin-left:-14px}
   .line{flex-direction:column;align-items:flex-start;gap:7px}
-  .step{grid-template-columns:38px 1fr;gap:14px}
-  .step::before{font-size:21px}
+  .steps{padding-left:30px}
+  .step .dot{left:-30px;top:28px}
   .reach{gap:24px}
 }
 </style>
@@ -306,29 +318,27 @@ a{color:inherit}
     </div>
     <div class="body">
       <div class="steps">
+        <span class="rail-bg" aria-hidden="true"></span>
+        <span class="rail-on" aria-hidden="true"></span>
         <div class="step">
-          <div>
-            <h4>諮詢與報價</h4>
-            <p>說明需求與時程，我回覆做法與報價。</p>
-          </div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="hd"><span class="num">01</span><h4>諮詢與報價</h4></div>
+          <p>說明需求與時程，我回覆做法與報價。</p>
         </div>
         <div class="step">
-          <div>
-            <h4>需求對焦</h4>
-            <p>釐清受眾、訴求與參考風格，方向先講清楚再動手。</p>
-          </div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="hd"><span class="num">02</span><h4>需求對焦</h4></div>
+          <p>釐清受眾、訴求與參考風格，方向先講清楚再動手。</p>
         </div>
         <div class="step">
-          <div>
-            <h4>設計執行</h4>
-            <p>提案初稿、依回饋調整，修改範圍報價時就寫明。</p>
-          </div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="hd"><span class="num">03</span><h4>設計執行</h4></div>
+          <p>提案初稿、依回饋調整，修改範圍報價時就寫明。</p>
         </div>
         <div class="step">
-          <div>
-            <h4>交付與後續</h4>
-            <p>交付可直接使用的檔案；網站案含上線檢查與交接。</p>
-          </div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="hd"><span class="num">04</span><h4>交付與後續</h4></div>
+          <p>交付可直接使用的檔案；網站案含上線檢查與交接。</p>
         </div>
       </div>
     </div>
@@ -349,5 +359,35 @@ a{color:inherit}
   </div>
 
 </div>
+
+<script>
+(function(){
+  var wrap=document.querySelector('.steps');
+  if(!wrap) return;
+  var fill=wrap.querySelector('.rail-on'),steps=[].slice.call(wrap.querySelectorAll('.step'));
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    steps.forEach(function(s){s.classList.add('on')});
+    var b=wrap.querySelector('.rail-bg');
+    b.style.height='100%'; fill.style.height='100%'; return;
+  }
+  var bg=wrap.querySelector('.rail-bg');
+  function sizeRail(){
+    var lastDot=steps[steps.length-1].querySelector('.dot');
+    var w=wrap.getBoundingClientRect(),d=lastDot.getBoundingClientRect();
+    bg.style.height=Math.max(0,(d.top+d.height/2)-w.top-14)+'px';
+  }
+  sizeRail();
+  addEventListener('resize',sizeRail);
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('on'); });
+    var done=steps.filter(function(s){return s.classList.contains('on')});
+    if(!done.length){ fill.style.height='0'; return; }
+    var dot=done[done.length-1].querySelector('.dot');
+    var w=wrap.getBoundingClientRect(),d=dot.getBoundingClientRect();
+    fill.style.height=Math.max(0,(d.top+d.height/2)-w.top-14)+'px';
+  },{rootMargin:'0px 0px -42% 0px',threshold:0});
+  steps.forEach(function(s){io.observe(s)});
+})();
+</script>
 </body>
 </html>
