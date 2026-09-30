@@ -63,15 +63,6 @@ section{padding-top:76px}
 .sec-h h2{font-size:clamp(22px,3.2vw,30px);font-weight:700;letter-spacing:-.015em;margin-top:8px}
 .sec-h p{margin-top:12px;color:var(--muted);max-width:52ch;font-size:14.5px}
 
-.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 28px;transition:.2s}
-.card:hover{border-color:#CFCFC9;transform:translateY(-2px)}
-.card h3{font-size:17px;font-weight:700;letter-spacing:-.01em}
-.card .en{font-size:11.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
-.card p{margin-top:12px;font-size:14px;color:#57574F;line-height:1.7}
-.card ul{margin-top:16px;list-style:none;display:grid;gap:7px}
-.card li{font-size:13.5px;color:var(--muted);padding-left:15px;position:relative}
-.card li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--lime)}
 
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
 .step{position:relative;padding-top:26px;border-top:2px solid var(--ink)}
@@ -152,12 +143,12 @@ footer a:hover{color:var(--ink)}
 .prow2.rec .pcol.hl{background:#fff;border:1px solid #D9E9A8}
 
 @media (max-width:860px){
-  .svc,.flow{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr 1fr}
 }
 @media (max-width:620px){
   .wrap,.nav-in{padding-left:20px;padding-right:20px}
   .hero{padding:60px 0 48px}
-  .svc,.flow{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
   .contact{padding:40px 26px}
   .nav-links{gap:14px}
   .nav-links .hide-sm{display:none}
@@ -169,8 +160,7 @@ footer a:hover{color:var(--ink)}
 <div class="nav"><div class="nav-in">
   <a href="./" class="brand">Vera <span>· Design</span></a>
   <nav class="nav-links">
-    <a href="#services" class="hide-sm">服務</a>
-    <a href="#pricing" class="hide-sm">報價</a>
+    <a href="#pricing" class="hide-sm">服務與報價</a>
     <a href="#flow" class="hide-sm">流程</a>
     <a href="./projects/">作品集</a>
     <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="cta">聊聊需求</a>
@@ -189,55 +179,12 @@ footer a:hover{color:var(--ink)}
     </div>
   </header>
 
-  <section id="services">
-    <div class="sec-h">
-      <div class="sec-n">SERVICES</div>
-      <h2>三種合作方式</h2>
-      <p>依需求規模選擇。不確定適合哪一種，直接聊聊，我會告訴你怎麼配比較省。</p>
-    </div>
-    <div class="svc">
-      <div class="card">
-        <div class="en">SINGLE PROJECT</div>
-        <h3>單項設計</h3>
-        <p>有明確的單一需求，做完交付完稿。</p>
-        <ul>
-          <li>廣告圖 · Banner</li>
-          <li>社群貼文視覺</li>
-          <li>活動主視覺</li>
-          <li>品牌識別</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="en">WEB DESIGN</div>
-        <h3>網站設計</h3>
-        <p>從設計到切版，交付可直接上線的靜態網頁。</p>
-        <ul>
-          <li>一頁式介紹頁 · LP</li>
-          <li>活動頁 · 集資頁</li>
-          <li>品牌形象網站</li>
-          <li>含 SEO 基礎設定</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="en">MONTHLY</div>
-        <h3>包月合作</h3>
-        <p>每月固定產出，省去每次重新說明品牌背景的時間。</p>
-        <ul>
-          <li>社群視覺包月</li>
-          <li>廣告素材定期更新</li>
-          <li>品牌風格一致維護</li>
-          <li>方案內容依需求討論</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-
   <section id="pricing">
     <div class="sec-h">
-      <div class="sec-n">PRICING</div>
-      <h2>透明報價</h2>
-      <p>常見項目的價格直接列出來，不用來回問。實際報價依專案範圍與商業用途評估。</p>
+      <div class="sec-n">SERVICES &amp; PRICING</div>
+      <h2>服務與報價</h2>
+      <p>依需求規模選擇：<strong>單次委託</strong>、<strong>網站專案</strong>，或<strong>包月合作</strong>。
+      常見項目的價格直接列出來，不用來回問；不確定適合哪一種，直接聊聊，我會告訴你怎麼配比較省。</p>
     </div>
 
     <div class="price-group">
