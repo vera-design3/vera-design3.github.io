@@ -17,11 +17,11 @@ const navHTML = `
     <nav class="nav-links" id="navLinks">
       <a href="${SITE_NEW.projects}">Projects</a>
       <div class="nav-cats">
-        <a href="${SITE_NEW.projects}?cat=ad">廣告圖設計</a>
-        <a href="${SITE_NEW.projects}?cat=social">貼文 / 限時動態</a>
+        <a href="${SITE_NEW.projects}?cat=uiux">網站 · UI/UX</a>
         <a href="${SITE_NEW.projects}?cat=lp">LP 介紹頁</a>
         <a href="${SITE_NEW.projects}?cat=brand">品牌視覺</a>
-        <a href="${SITE_NEW.projects}?cat=uiux">UI/UX</a>
+        <a href="${SITE_NEW.projects}?cat=ad">廣告圖設計</a>
+        <a href="${SITE_NEW.projects}?cat=social">貼文 / 限時動態</a>
       </div>
       <a href="${SITE_NEW.about}">About</a>
       <a href="${SITE_NEW.line}" target="_blank" rel="noopener" class="nav-cta">Get in touch</a>
