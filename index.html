@@ -22,14 +22,13 @@
 <style>
 :root{
   --white:#FFFFFF;
-  --grey:#F1F1EF;
+  --grey:#F2F2F0;
   --ink:#16181A;
-  --ink-2:#8C8C88;
+  --ink-2:#8C8E90;
   --ink-3:#4A4C4E;
-  --line:#E2E2DE;
-  --line-d:#2C3034;
-  --lime:#D7F367;
-  --dark:#15191C;
+  --line:#E4E4E0;
+  --lime:#D3F34E;
+  --dark:#131B1F;
   --sans:"Inter","Noto Sans TC",-apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif;
   --mono:"DM Mono","SFMono-Regular",Menlo,monospace;
   --w:1160px;
@@ -47,18 +46,25 @@ a{color:inherit}
 .band .inner{max-width:var(--w);margin:0 auto;padding-left:28px;padding-right:28px}
 .b-white{background:var(--white)}
 .b-grey{background:var(--grey)}
-.b-lime{background:var(--lime)}
+.b-lime{background:var(--lime);position:relative;overflow:hidden}
+.b-lime::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cpath d='M13 9v8M9 13h8' stroke='%23AFCB3E' stroke-width='1'/%3E%3C/svg%3E")}
+.b-lime .inner{position:relative;z-index:1}
 .b-dark{background:var(--dark);color:var(--white)}
 
 /* 頁首 */
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);
   backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
-.nav .inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px}
-.brand{font-size:17px;font-weight:600;letter-spacing:-.02em;text-decoration:none}
-.nav-l{display:flex;gap:4px;align-items:center;margin-left:34px;flex:1}
-.nav-l a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);text-decoration:none;padding:7px 11px;border-radius:100px;transition:.16s}
-.nav-l a:hover{background:var(--grey);color:var(--ink)}
+.nav .inner{display:flex;align-items:center;gap:16px;min-height:66px}
+.nav-grp{display:flex;align-items:center;gap:2px;background:var(--grey);
+  border-radius:100px;padding:5px 6px}
+.brand{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;
+  text-decoration:none;padding:7px 13px}
+.nav-l{display:flex;gap:2px;align-items:center}
+.nav-l a{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);text-decoration:none;padding:7px 12px;border-radius:100px;transition:.16s}
+.nav-l a:hover{background:var(--white);color:var(--ink)}
+.nav .sp{flex:1}
 .pill-btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--white);
   font-size:13px;font-weight:500;text-decoration:none;padding:10px 8px 10px 18px;border-radius:100px;transition:.18s}
 .pill-btn:hover{opacity:.84}
@@ -85,8 +91,12 @@ a{color:inherit}
 
 /* 編號列 */
 .rows{margin-top:44px;border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:44px 1fr auto;gap:22px;align-items:center;
+.row{display:grid;grid-template-columns:44px 1fr auto 40px;gap:22px;align-items:center;
   padding:22px 4px;border-bottom:1px solid var(--line);transition:background .16s}
+.arw{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:13px;
+  transition:.18s;justify-self:end}
+.arw:hover{background:var(--ink);border-color:var(--ink);color:var(--lime)}
 .row:hover{background:rgba(0,0,0,.018)}
 .n{font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.06em}
 .nm{font-size:16px;font-weight:500;letter-spacing:-.005em}
@@ -105,11 +115,11 @@ a{color:inherit}
 
 /* 包月三欄 */
 .tiers{margin-top:18px;border-top:1px solid var(--line)}
-.thd{display:grid;grid-template-columns:44px 1fr 128px 142px;gap:22px;padding:11px 4px;border-bottom:1px solid var(--line)}
+.thd{display:grid;grid-template-columns:44px 1fr 124px 138px 40px;gap:20px;padding:11px 4px;border-bottom:1px solid var(--line)}
 .thd span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink-2);text-align:right}
 .thd span:first-child,.thd span:nth-child(2){text-align:left}
-.trow{display:grid;grid-template-columns:44px 1fr 128px 142px;gap:22px;align-items:center;
+.trow{display:grid;grid-template-columns:44px 1fr 124px 138px 40px;gap:20px;align-items:center;
   padding:20px 4px;border-bottom:1px solid var(--line);transition:background .16s}
 .trow:hover{background:rgba(0,0,0,.018)}
 .trow .c{text-align:right;white-space:nowrap}
@@ -121,18 +131,17 @@ a{color:inherit}
 .note{margin-top:20px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-2)}
 
 /* 流程 */
-.steps{margin-top:44px;position:relative;padding-left:44px}
-.steps .rail-bg,.steps .rail-on{position:absolute;left:5px;top:16px;width:2px}
+.steps{margin-top:44px;position:relative;padding-left:62px}
+.steps .rail-bg,.steps .rail-on{position:absolute;left:14px;top:22px;width:2px}
 .steps .rail-bg{height:0;background:var(--line)}
 .steps .rail-on{height:0;background:var(--lime);transition:height .6s cubic-bezier(.33,.9,.3,1)}
 .step{position:relative;padding:24px 0;border-bottom:1px solid var(--line)}
 .step:last-child{border-bottom:none}
-.step .dot{position:absolute;left:-44px;top:28px;width:12px;height:12px;border-radius:50%;
-  background:var(--white);border:2px solid var(--line);transition:.3s}
-.step.on .dot{background:var(--lime);border-color:var(--lime)}
+.step .dot{position:absolute;left:-62px;top:20px;width:30px;height:30px;border-radius:50%;
+  background:var(--white);border:1px solid var(--line);display:grid;place-items:center;
+  font-family:var(--mono);font-size:10.5px;color:var(--ink-2);transition:.3s}
+.step.on .dot{background:var(--lime);border-color:var(--lime);color:var(--ink)}
 .step .hd{display:flex;align-items:baseline;gap:13px}
-.step .sn{font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.06em;transition:color .3s}
-.step.on .sn{color:var(--ink)}
 .step h4{font-size:16px;font-weight:500;letter-spacing:-.005em}
 .step p{margin-top:8px;font-size:14px;line-height:1.85;color:var(--ink-3);max-width:54ch}
 
@@ -151,11 +160,13 @@ a{color:inherit}
 .foot p{font-size:14px;line-height:1.85;color:#A9ACAE;max-width:34ch}
 .foot h5{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
   color:#6E7275;margin-bottom:14px}
+.foot h5::before{content:"↳ ";color:var(--lime)}
 .foot ul{list-style:none;display:grid;gap:8px}
 .foot a{font-size:14px;color:#D8DADC;text-decoration:none;transition:.16s}
 .foot a:hover{color:var(--lime)}
 .foot .mark{margin-top:64px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.foot .mark b{font-size:clamp(44px,8vw,92px);font-weight:600;letter-spacing:-.045em;color:var(--lime);line-height:.9}
+.foot .mark b{font-size:clamp(48px,9vw,104px);font-weight:600;letter-spacing:-.05em;color:var(--lime);line-height:.86}
+.foot .mark b i{font-style:normal;font-size:.44em;vertical-align:.72em;letter-spacing:0;margin-right:.04em}
 .foot .mark span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#5E6265}
 
 @media (max-width:860px){
@@ -189,12 +200,15 @@ a{color:inherit}
 
 <header class="band b-white nav">
   <div class="inner">
-    <a href="./" class="brand">Vera</a>
-    <nav class="nav-l">
-      <a href="#pricing">報價</a>
-      <a href="#process">流程</a>
-      <a href="./projects/">作品集</a>
-    </nav>
+    <div class="nav-grp">
+      <a href="./" class="brand">©Vera</a>
+      <nav class="nav-l">
+        <a href="#pricing">報價</a>
+        <a href="#process">流程</a>
+        <a href="./projects/">作品集</a>
+      </nav>
+    </div>
+    <span class="sp"></span>
     <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="pill-btn">聊聊需求<i>+</i></a>
   </div>
 </header>
@@ -220,44 +234,53 @@ a{color:inherit}
     <div class="rows">
       <div class="row"><span class="n">01</span>
         <span class="nm">一頁式網站</span>
-        <span class="pr">NT$ 15,000<u>起</u></span></div>
+        <span class="pr">NT$ 15,000<u>起</u></span>
+        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
       <div class="row"><span class="n">02</span>
         <span class="nm">品牌形象網站<small>3–5 pages</small></span>
-        <span class="pr">NT$ 35,000<u>起</u></span></div>
+        <span class="pr">NT$ 35,000<u>起</u></span>
+        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
       <div class="row"><span class="n">03</span>
         <span class="nm">Landing Page</span>
-        <span class="pr">NT$ 15,000<u>起</u></span></div>
+        <span class="pr">NT$ 15,000<u>起</u></span>
+        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
       <div class="row"><span class="n">04</span>
         <span class="nm">廣告圖、Banner、社群貼文視覺<small>min. 3 pcs</small></span>
-        <span class="pr">NT$ 1,000<u>／張</u></span></div>
+        <span class="pr">NT$ 1,000<u>／張</u></span>
+        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
     </div>
 
     <div class="grp"><h3>包月委託</h3><span>Monthly · 不綁約</span></div>
     <div class="tiers">
-      <div class="thd"><span></span><span>方案</span><span>純視覺</span><span>含行銷規劃</span></div>
+      <div class="thd"><span></span><span>方案</span><span>純視覺</span><span>含行銷規劃</span><span></span></div>
       <div class="trow"><span class="n">01</span>
         <span class="nm">每月 4 張</span>
         <span class="c" data-k="純視覺"><b>NT$ 3,900</b><u>／月</u></span>
-        <span class="c" data-k="含行銷規劃"><b>NT$ 6,200</b><u>／月</u></span></div>
+        <span class="c" data-k="含行銷規劃"><b>NT$ 6,200</b><u>／月</u></span>
+        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個方案">→</a></div>
       <div class="trow"><span class="n">02</span>
         <span class="nm">每月 8 張</span>
         <span class="c" data-k="純視覺"><b>NT$ 7,600</b><u>／月</u></span>
-        <span class="c" data-k="含行銷規劃"><b>NT$ 11,400</b><u>／月</u></span></div>
+        <span class="c" data-k="含行銷規劃"><b>NT$ 11,400</b><u>／月</u></span>
+        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個方案">→</a></div>
       <div class="trow pick"><span class="n">03</span>
         <span class="nm">每月 12 張<span class="chip">Popular</span></span>
         <span class="c" data-k="純視覺"><b>NT$ 11,200</b><u>／月</u></span>
-        <span class="c" data-k="含行銷規劃"><b>NT$ 16,400</b><u>／月</u></span></div>
+        <span class="c" data-k="含行銷規劃"><b>NT$ 16,400</b><u>／月</u></span>
+        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個方案">→</a></div>
       <div class="trow"><span class="n">04</span>
         <span class="nm">每月 16 張</span>
         <span class="c" data-k="純視覺"><b>NT$ 14,400</b><u>／月</u></span>
-        <span class="c" data-k="含行銷規劃"><b>NT$ 20,400</b><u>／月</u></span></div>
+        <span class="c" data-k="含行銷規劃"><b>NT$ 20,400</b><u>／月</u></span>
+        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個方案">→</a></div>
     </div>
 
     <div class="grp"><h3>額外合作</h3><span>Add-on</span></div>
     <div class="rows">
       <div class="row"><span class="n">01</span>
         <span class="nm">廣告投放</span>
-        <span class="pr">可合作洽談</span></div>
+        <span class="pr">可合作洽談</span>
+        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
     </div>
 
     <p class="note">以上為常見區間，實際依專案範圍報價。</p>
@@ -272,23 +295,23 @@ a{color:inherit}
       <span class="rail-bg" aria-hidden="true"></span>
       <span class="rail-on" aria-hidden="true"></span>
       <div class="step">
-        <span class="dot" aria-hidden="true"></span>
-        <div class="hd"><span class="sn">01</span><h4>諮詢與報價</h4></div>
+        <span class="dot" aria-hidden="true">01</span>
+        <div class="hd"><h4>諮詢與報價</h4></div>
         <p>說明需求與時程，我回覆做法與報價。</p>
       </div>
       <div class="step">
-        <span class="dot" aria-hidden="true"></span>
-        <div class="hd"><span class="sn">02</span><h4>需求對焦</h4></div>
+        <span class="dot" aria-hidden="true">02</span>
+        <div class="hd"><h4>需求對焦</h4></div>
         <p>釐清受眾、訴求與參考風格，方向先講清楚再動手。</p>
       </div>
       <div class="step">
-        <span class="dot" aria-hidden="true"></span>
-        <div class="hd"><span class="sn">03</span><h4>設計執行</h4></div>
+        <span class="dot" aria-hidden="true">03</span>
+        <div class="hd"><h4>設計執行</h4></div>
         <p>提案初稿、依回饋調整，修改範圍報價時就寫明。</p>
       </div>
       <div class="step">
-        <span class="dot" aria-hidden="true"></span>
-        <div class="hd"><span class="sn">04</span><h4>交付與後續</h4></div>
+        <span class="dot" aria-hidden="true">04</span>
+        <div class="hd"><h4>交付與後續</h4></div>
         <p>交付可直接使用的檔案；網站案含上線檢查與交接。</p>
       </div>
     </div>
@@ -328,7 +351,7 @@ a{color:inherit}
       </div>
     </div>
     <div class="mark">
-      <b>Vera</b>
+      <b><i>©</i>Vera</b>
       <span>© 2026 Vera Liu — 網站設計 · 品牌視覺 · 台北</span>
     </div>
   </div>
