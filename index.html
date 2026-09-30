@@ -96,6 +96,32 @@ footer{margin-top:72px;padding-top:26px;border-top:1px solid var(--line);
 footer a{color:var(--muted);text-decoration:none}
 footer a:hover{color:var(--ink)}
 
+
+.price-group{margin-bottom:34px}
+.price-group h3{font-size:16px;font-weight:700;letter-spacing:-.005em;margin-bottom:4px}
+.price-group .note{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.ptable{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.prow{display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  padding:17px 24px;border-bottom:1px solid var(--line);transition:.15s}
+.prow:last-child{border-bottom:none}
+.prow:hover{background:#FCFCFA}
+.pname{font-size:15px;font-weight:600;flex:1;min-width:0}
+.pname small{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:3px;letter-spacing:0}
+.pval{font-size:15.5px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pval em{font-style:normal;font-size:12.5px;font-weight:500;color:var(--muted);margin-left:3px}
+.pext{background:#FBFEED;border:1px solid #D9E9A8}
+.terms{margin-top:30px;background:var(--surface);border:1px solid var(--line);
+  border-radius:14px;padding:24px 26px}
+.terms h4{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:14px}
+.terms ul{list-style:none;display:grid;gap:9px}
+.terms li{font-size:13.5px;color:#57574F;padding-left:17px;position:relative;line-height:1.7}
+.terms li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;
+  border-radius:50%;background:var(--lime)}
+@media (max-width:620px){
+  .prow{flex-direction:column;align-items:flex-start;gap:6px;padding:15px 18px}
+  .pval{font-size:16px}
+}
+
 @media (max-width:860px){
   .svc,.flow{grid-template-columns:1fr 1fr}
 }
@@ -115,6 +141,7 @@ footer a:hover{color:var(--ink)}
   <a href="./" class="brand">Vera <span>· Design</span></a>
   <nav class="nav-links">
     <a href="#services" class="hide-sm">服務</a>
+    <a href="#pricing" class="hide-sm">報價</a>
     <a href="#flow" class="hide-sm">流程</a>
     <a href="./projects/">作品集</a>
     <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="cta">聊聊需求</a>
@@ -173,6 +200,90 @@ footer a:hover{color:var(--ink)}
           <li>方案內容依需求討論</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+
+  <section id="pricing">
+    <div class="sec-h">
+      <div class="sec-n">PRICING</div>
+      <h2>透明報價</h2>
+      <p>常見項目的價格直接列出來，不用來回問。實際報價依專案範圍與商業用途評估。</p>
+    </div>
+
+    <div class="price-group">
+      <h3>網站設計</h3>
+      <p class="note">從設計到切版，交付可直接上線的靜態網頁，含 SEO 基礎設定。</p>
+      <div class="ptable">
+        <div class="prow">
+          <span class="pname">一頁式網站 / Landing Page
+            <small>單頁形象站 · 活動落地頁 · 產品介紹頁</small></span>
+          <span class="pval">NT$ 15,000<em>起</em></span>
+        </div>
+        <div class="prow">
+          <span class="pname">品牌形象網站
+            <small>3–5 頁 · 含首頁與內頁版型</small></span>
+          <span class="pval">NT$ 35,000<em>起</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-group">
+      <h3>廣告與社群視覺</h3>
+      <p class="note">單次委託。長期穩定出圖走下方的包月方案，單張成本較低。</p>
+      <div class="ptable">
+        <div class="prow">
+          <span class="pname">廣告圖 / Banner / 社群貼文視覺
+            <small>單一尺寸，5 張起接</small></span>
+          <span class="pval">NT$ 1,000<em>／張</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-group">
+      <h3>包月合作</h3>
+      <p class="note">每月固定產出，風格長期一致，省去每次重新說明品牌背景的時間。</p>
+      <div class="ptable">
+        <div class="prow">
+          <span class="pname">視覺包月 · 12 張
+            <small>每月 12 張圖，你給方向與文案</small></span>
+          <span class="pval">NT$ 10,400<em>／月</em></span>
+        </div>
+        <div class="prow">
+          <span class="pname">視覺包月 · 18 張
+            <small>每月 18 張圖，你給方向與文案</small></span>
+          <span class="pval">NT$ 14,400<em>／月</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-group">
+      <h3>延伸合作</h3>
+      <p class="note">需要的話可以一起處理，不用另外找人對接。</p>
+      <div class="ptable pext">
+        <div class="prow">
+          <span class="pname">行銷內容規劃
+            <small>主題安排、內容方向、文案撰寫</small></span>
+          <span class="pval">依需求<em>另計</em></span>
+        </div>
+        <div class="prow">
+          <span class="pname">廣告投放
+            <small>可配合投放夥伴，素材與投放一起顧</small></span>
+          <span class="pval">可合作<em>洽談</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="terms">
+      <h4>合作條件</h4>
+      <ul>
+        <li>單項委託最低承接金額 NT$ 5,000</li>
+        <li>報價含 2 次修改，第 3 次起按時計費</li>
+        <li>一般交期 7–14 個工作天；急件（7 天內）加收 30%，視檔期接受</li>
+        <li>包月方案以 3 個月為一期，首月建立風格與版型系統</li>
+        <li>包月交付可直接發布的成品圖檔；單項委託完稿含原始檔</li>
+        <li>以上為常見區間，實際報價依專案範圍與商業用途評估</li>
+      </ul>
     </div>
   </section>
 
