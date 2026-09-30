@@ -20,302 +20,333 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F4F4F2; --surface:#FFFFFF; --ink:#1A1A1A; --muted:#8A8A8A;
-  --line:#E2E2DE; --lime:#D7F367;
-  --sans:"Inter","Noto Sans TC",-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;
+  --paper:#FAF8F4;
+  --ink:#191714;
+  --ink-2:#6B6660;
+  --rule:#DDD7CC;
+  --rule-soft:#EBE6DC;
+  --accent:#2E4A3B;
+  --serif:"Noto Serif TC",Georgia,"Songti TC",serif;
+  --sans:"Inter","Noto Sans TC",-apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif;
+  --col:1180px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);
-  font-size:15px;line-height:1.75;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
-
-.nav{position:sticky;top:0;z-index:50;background:rgba(244,244,242,.92);
-  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
-.nav-in{max-width:1080px;margin:0 auto;padding:0 28px;display:flex;align-items:center;
-  justify-content:space-between;gap:20px;min-height:62px}
-.brand{font-weight:700;font-size:15px;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
-.brand span{color:var(--muted);font-weight:400}
-.nav-links{display:flex;align-items:center;gap:22px}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:.18s}
-.nav-links a:hover{color:var(--ink)}
-.cta{background:var(--ink);color:#fff!important;padding:9px 18px;border-radius:100px;font-size:13.5px}
-.cta:hover{opacity:.85}
-
-.wrap{max-width:1080px;margin:0 auto;padding:0 28px 100px}
-.hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--muted);margin-bottom:20px}
-h1{font-size:clamp(32px,5.6vw,54px);line-height:1.22;font-weight:700;letter-spacing:-.025em;max-width:17ch}
-h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--lime) 62%)}
-.sub{margin-top:24px;color:#4A4A48;max-width:56ch;font-size:16px}
-.hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-block;text-decoration:none;font-size:14.5px;font-weight:600;padding:13px 26px;border-radius:100px;transition:.18s}
-.btn-a{background:var(--ink);color:#fff}
-.btn-a:hover{opacity:.85}
-.btn-b{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.btn-b:hover{border-color:var(--ink)}
-
-section{padding-top:76px}
-.sec-h{margin-bottom:34px}
-.sec-n{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
-.sec-h h2{font-size:clamp(22px,3.2vw,30px);font-weight:700;letter-spacing:-.015em;margin-top:8px}
-.sec-h p{margin-top:12px;color:var(--muted);max-width:52ch;font-size:14.5px}
-
-
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
-.step{position:relative;padding-top:26px;border-top:2px solid var(--ink)}
-.step:nth-child(n+2){border-top-color:var(--line)}
-.step .n{position:absolute;top:-13px;left:0;background:var(--bg);padding-right:10px;
-  font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
-.step h4{font-size:15.5px;font-weight:700}
-.step p{margin-top:8px;font-size:13.5px;color:var(--muted);line-height:1.7}
-
-.contact{margin-top:76px;background:var(--ink);color:#fff;border-radius:20px;padding:56px 48px;
-  position:relative;overflow:hidden}
-.contact::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;
-  border-radius:50%;background:var(--lime);opacity:.16}
-.contact h2{font-size:clamp(23px,3.4vw,32px);font-weight:700;letter-spacing:-.02em;max-width:20ch;position:relative}
-.contact p{margin-top:14px;color:rgba(255,255,255,.7);max-width:46ch;font-size:15px;position:relative}
-.links{margin-top:32px;display:flex;gap:28px;flex-wrap:wrap;position:relative}
-.links a{color:#fff;text-decoration:none;font-size:15px;font-weight:600;
-  border-bottom:2px solid var(--lime);padding-bottom:3px}
-
-footer{margin-top:72px;padding-top:26px;border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-footer a{color:var(--muted);text-decoration:none}
-footer a:hover{color:var(--ink)}
-
-
-.price-group{margin-bottom:34px}
-.price-group h3{font-size:16px;font-weight:700;letter-spacing:-.005em;margin-bottom:4px}
-.price-group .note{font-size:13.5px;color:var(--muted);margin-bottom:14px}
-.ptable{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.prow{display:flex;align-items:baseline;justify-content:space-between;gap:20px;
-  padding:17px 24px;border-bottom:1px solid var(--line);transition:.15s}
-.prow:last-child{border-bottom:none}
-.prow:hover{background:#FCFCFA}
-.pname{font-size:15px;font-weight:600;flex:1;min-width:0}
-.pname small{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:3px;letter-spacing:0}
-.pval{font-size:15.5px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
-.pval em{font-style:normal;font-size:12.5px;font-weight:500;color:var(--muted);margin-left:3px}
-.pext{background:#FBFEED;border:1px solid #D9E9A8}
-.terms{margin-top:30px;background:var(--surface);border:1px solid var(--line);
-  border-radius:14px;padding:24px 26px}
-.terms h4{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:14px}
-.terms ul{list-style:none;display:grid;gap:9px}
-.terms li{font-size:13.5px;color:#57574F;padding-left:17px;position:relative;line-height:1.7}
-.terms li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;
-  border-radius:50%;background:var(--lime)}
-@media (max-width:620px){
-  .prow{flex-direction:column;align-items:flex-start;gap:6px;padding:15px 18px}
-  .pval{font-size:16px}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:15.5px;line-height:1.78;-webkit-font-smoothing:antialiased;
+  font-feature-settings:"tnum" 0;
 }
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
+/* ── 頁首 ───────────────────────────── */
+.masthead{border-bottom:1px solid var(--ink);position:sticky;top:0;z-index:40;background:var(--paper)}
+.masthead .in{max-width:var(--col);margin:0 auto;padding:16px 32px;
+  display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.logo{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.01em;text-decoration:none}
+.logo i{font-style:normal;font-family:var(--sans);font-size:12px;font-weight:500;
+  color:var(--ink-2);margin-left:9px;letter-spacing:.08em}
+.masthead nav{display:flex;gap:26px;align-items:baseline}
+.masthead nav a{font-size:13.5px;color:var(--ink-2);text-decoration:none;
+  padding-bottom:2px;border-bottom:1px solid transparent;transition:.15s}
+.masthead nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.masthead nav a.lead{color:var(--ink);font-weight:500;border-bottom-color:var(--accent);border-bottom-width:2px}
 
-.ptable-2col .phead{display:grid;grid-template-columns:1fr 132px 148px;gap:12px;
-  padding:13px 24px;background:#FAFAF8;border-bottom:1px solid var(--line)}
-.ptable-2col .phead span{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-align:right}
-.ptable-2col .phead span:first-child{text-align:left}
-.prow2{display:grid;grid-template-columns:1fr 132px 148px;gap:12px;align-items:center;
-  padding:16px 24px;border-bottom:1px solid var(--line);transition:.15s}
-.prow2:last-child{border-bottom:none}
-.prow2:hover{background:#FCFCFA}
-.pcol{text-align:right;white-space:nowrap}
-.pcol b{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
-.pcol em{font-style:normal;font-size:12px;color:var(--muted);margin-left:2px}
-.pcol.hl b{color:var(--ink)}
-.pcol.hl{background:#FBFEED;border-radius:8px;padding:6px 10px;margin:-6px -4px -6px 0}
-@media (max-width:620px){
-  .ptable-2col .phead{display:none}
-  .prow2{grid-template-columns:1fr;gap:10px;padding:16px 18px}
-  .pcol{display:flex;justify-content:space-between;align-items:baseline;text-align:left}
-  .pcol::before{content:attr(data-label);font-size:12.5px;color:var(--muted);font-weight:500}
-  .pcol.hl{margin:0;padding:8px 12px}
+.shell{max-width:var(--col);margin:0 auto;padding:0 32px 110px}
+
+/* ── Hero ───────────────────────────── */
+.opening{padding:84px 0 56px;border-bottom:3px double var(--rule)}
+.standfirst{font-family:var(--sans);font-size:12.5px;letter-spacing:.06em;
+  color:var(--ink-2);margin-bottom:26px}
+.opening h1{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(34px,6.2vw,66px);line-height:1.26;letter-spacing:.005em;
+  max-width:none;
 }
-
-
-.prow2.rec{background:#FBFEED;position:relative}
-.prow2.rec:hover{background:#F7FBE4}
-.rec-tag{display:inline-block;background:var(--lime);color:var(--ink);font-size:10.5px;
-  font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:100px;margin-left:9px;vertical-align:2px}
-.prow2.rec .pcol.hl{background:#fff;border:1px solid #D9E9A8}
-
-@media (max-width:860px){
-  .flow{grid-template-columns:1fr 1fr}
+.opening .deck{
+  margin-top:30px;max-width:44ch;font-size:16px;line-height:1.85;color:#413D37;
+  border-left:2px solid var(--accent);padding-left:20px;
 }
-@media (max-width:620px){
-  .wrap,.nav-in{padding-left:20px;padding-right:20px}
-  .hero{padding:60px 0 48px}
-  .flow{grid-template-columns:1fr}
-  .contact{padding:40px 26px}
-  .nav-links{gap:14px}
-  .nav-links .hide-sm{display:none}
+.acts{margin-top:38px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.act{font-size:15px;font-weight:600;text-decoration:none;padding:13px 28px;
+  border:1px solid var(--ink);background:var(--ink);color:var(--paper);transition:.18s}
+.act:hover{background:transparent;color:var(--ink)}
+.act.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.act.ghost:hover{border-color:var(--ink)}
+
+/* ── 通用區段：不對稱雙欄 ─────────────── */
+.part{display:grid;grid-template-columns:230px 1fr;gap:56px;
+  padding:72px 0;border-bottom:1px solid var(--rule)}
+.part > .side h2{font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.4;letter-spacing:.01em}
+.part > .side p{margin-top:14px;font-size:14px;line-height:1.8;color:var(--ink-2)}
+.part > .side p strong{color:var(--ink);font-weight:500}
+.body{min-width:0}
+
+/* ── 報價 ───────────────────────────── */
+.set + .set{margin-top:44px}
+.set > h3{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:.01em;
+  padding-bottom:9px;border-bottom:1px solid var(--ink)}
+.set > .gloss{margin-top:11px;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+.set > .gloss strong{color:var(--ink);font-weight:700}
+
+.line{display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+  padding:16px 0;border-bottom:1px solid var(--rule-soft)}
+.line:first-of-type{border-top:none}
+.what{font-size:15.5px;font-weight:500;flex:1;min-width:0}
+.what span{display:block;font-weight:400;font-size:13px;color:var(--ink-2);margin-top:4px;line-height:1.7}
+.fig{font-family:var(--sans);font-size:16px;font-weight:600;white-space:nowrap;
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.fig u{text-decoration:none;font-size:12px;font-weight:400;color:var(--ink-2);margin-left:4px}
+
+/* 包月：三欄 */
+.tiers{margin-top:8px}
+.tiers .hd{display:grid;grid-template-columns:1fr 126px 142px;gap:16px;
+  padding:9px 0;border-bottom:1px solid var(--ink)}
+.tiers .hd span{font-size:11.5px;color:var(--ink-2);text-align:right;letter-spacing:.04em}
+.tiers .hd span:first-child{text-align:left}
+.tier{display:grid;grid-template-columns:1fr 126px 142px;gap:16px;align-items:center;
+  padding:17px 0;border-bottom:1px solid var(--rule-soft)}
+.tier .cell{text-align:right;white-space:nowrap}
+.tier .cell b{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.tier .cell u{text-decoration:none;font-size:12px;font-weight:400;color:var(--ink-2);margin-left:3px}
+.tier.pick{background:linear-gradient(to right,rgba(46,74,59,.045),transparent 72%);
+  box-shadow:inset 3px 0 0 var(--accent);padding-left:16px;margin-left:-16px}
+.what .pin{display:inline-block;font-size:10.5px;font-weight:500;color:var(--accent);
+  border:1px solid var(--accent);padding:1px 8px;margin:0 0 0 10px;vertical-align:2px;white-space:nowrap;line-height:1.6}
+.foot-note{margin-top:14px;font-size:13px;line-height:1.8;color:var(--ink-2)}
+
+/* 條件 */
+.terms{margin-top:46px;padding-top:22px;border-top:3px double var(--rule)}
+.terms h3{font-family:var(--serif);font-size:16px;font-weight:600;margin-bottom:14px}
+.terms ol{list-style:none;counter-reset:t;display:grid;gap:10px}
+.terms li{counter-increment:t;font-size:13.5px;line-height:1.8;color:#413D37;
+  padding-left:26px;position:relative}
+.terms li::before{content:counter(t,decimal-leading-zero);position:absolute;left:0;top:1px;
+  font-size:11px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.terms li strong{font-weight:700;color:var(--ink)}
+
+/* ── 流程：真的是序列，所以編號 ─────────── */
+.steps{counter-reset:s;display:grid;gap:0}
+.step{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:20px;
+  padding:22px 0;border-bottom:1px solid var(--rule-soft)}
+.step:last-child{border-bottom:none}
+.step::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);
+  font-size:26px;font-weight:500;color:var(--rule);line-height:1;padding-top:3px}
+.step h4{font-size:16px;font-weight:600;letter-spacing:.005em}
+.step p{margin-top:7px;font-size:13.5px;line-height:1.8;color:var(--ink-2);max-width:56ch}
+
+/* ── 聯絡 ───────────────────────────── */
+.close{padding:78px 0 0}
+.close h2{font-family:var(--serif);font-size:clamp(25px,4vw,38px);font-weight:600;
+  line-height:1.4;max-width:19ch}
+.close p{margin-top:18px;max-width:46ch;font-size:15.5px;color:#413D37}
+.reach{margin-top:34px;display:flex;gap:40px;flex-wrap:wrap}
+.reach a{font-size:16px;font-weight:600;text-decoration:none;
+  border-bottom:2px solid var(--accent);padding-bottom:4px;transition:.18s}
+.reach a:hover{border-bottom-color:var(--ink)}
+.reach a em{display:block;font-style:normal;font-size:12px;font-weight:400;
+  color:var(--ink-2);margin-bottom:3px;border:0}
+
+.colophon{margin-top:76px;padding-top:20px;border-top:1px solid var(--ink);
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--ink-2)}
+.colophon a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.colophon a:hover{border-bottom-color:var(--ink);color:var(--ink)}
+
+/* ── 響應式 ─────────────────────────── */
+@media (max-width:900px){
+  .part{grid-template-columns:1fr;gap:26px;padding:54px 0}
+  .part > .side h2{font-size:23px}
+}
+@media (max-width:640px){
+  .masthead .in{padding:13px 20px;flex-wrap:wrap;gap:10px}
+  .masthead nav{gap:18px}
+  .masthead nav a.hide-s{display:none}
+  .shell{padding:0 20px 80px}
+  .opening{padding:52px 0 40px}
+  .opening h1{font-size:clamp(27px,7.6vw,38px);line-height:1.38}
+  .opening h1 br{display:none}
+  .opening .deck{font-size:15px;padding-left:16px}
+  .acts{gap:14px}
+  .act{flex:1;text-align:center;padding:13px 16px;font-size:14.5px}
+  .tiers .hd{display:none}
+  .tier{grid-template-columns:1fr;gap:9px;padding:18px 0}
+  .tier .cell{display:flex;justify-content:space-between;align-items:baseline;text-align:left}
+  .tier .cell::before{content:attr(data-k);font-size:12.5px;color:var(--ink-2);font-weight:400}
+  .tier.pick{padding:18px 0 18px 14px;margin-left:-14px}
+  .line{flex-direction:column;align-items:flex-start;gap:7px}
+  .step{grid-template-columns:38px 1fr;gap:14px}
+  .step::before{font-size:21px}
+  .reach{gap:24px}
 }
 </style>
 </head>
 <body>
 
-<div class="nav"><div class="nav-in">
-  <a href="./" class="brand">Vera <span>· Design</span></a>
-  <nav class="nav-links">
-    <a href="#pricing" class="hide-sm">服務與報價</a>
-    <a href="#flow" class="hide-sm">流程</a>
-    <a href="./projects/">作品集</a>
-    <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="cta">聊聊需求</a>
-  </nav>
-</div></div>
+<header class="masthead">
+  <div class="in">
+    <a href="./" class="logo">Vera<i>網站設計・品牌視覺</i></a>
+    <nav>
+      <a href="#pricing" class="lead">服務與報價</a>
+      <a href="#process" class="hide-s">合作流程</a>
+      <a href="./projects/">作品集</a>
+      <a href="#contact">聯絡</a>
+    </nav>
+  </div>
+</header>
 
-<div class="wrap">
+<div class="shell">
 
-  <header class="hero">
-    <p class="eyebrow">網站設計 × 品牌視覺 · 台北</p>
-    <h1>從網站到視覺，<br><em>設計品牌被看見的每一刻</em></h1>
-    <p class="sub">為值得被記住的品牌，打造專屬視覺。以網站設計為核心，延伸品牌視覺、社群素材與數位推廣。從資訊梳理到視覺呈現，打造一致、清楚且具辨識度的品牌形象。</p>
-    <div class="hero-cta">
-      <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="btn btn-a">聊聊你的需求</a>
-      <a href="./projects/" class="btn btn-b">看作品集 →</a>
-    </div>
-  </header>
-
-  <section id="pricing">
-    <div class="sec-h">
-      <div class="sec-n">SERVICES &amp; PRICING</div>
-      <h2>服務與報價</h2>
-      <p>依需求規模選擇：<strong>單次委託</strong>、<strong>網站專案</strong>，或<strong>包月合作</strong>。
-      常見項目的價格直接列出來，不用來回問；不確定適合哪一種，直接聊聊，我會告訴你怎麼配比較省。</p>
-    </div>
-
-    <div class="price-group">
-      <h3>網站設計</h3>
-      <p class="note">從設計到切版，交付可直接上線的靜態網頁，含 SEO 基礎設定。</p>
-      <div class="ptable">
-        <div class="prow">
-          <span class="pname">一頁式網站
-            <small>單頁形象站 · 產品介紹頁</small></span>
-          <span class="pval">NT$ 15,000<em>起</em></span>
-        </div>
-        <div class="prow">
-          <span class="pname">品牌形象網站
-            <small>3–5 頁 · 含首頁與內頁版型</small></span>
-          <span class="pval">NT$ 35,000<em>起</em></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="price-group">
-      <h3>廣告與社群視覺</h3>
-      <p class="note">單次委託。長期穩定出圖走下方的包月方案，單張成本較低。</p>
-      <div class="ptable">
-        <div class="prow">
-          <span class="pname">廣告圖 / Banner / 社群貼文視覺
-            <small>單一尺寸，3 張起接</small></span>
-          <span class="pval">NT$ 1,000<em>／張</em></span>
-        </div>
-        <div class="prow">
-          <span class="pname">Landing Page
-            <small>廣告活動落地頁 · 轉換導向</small></span>
-          <span class="pval">NT$ 15,000<em>起</em></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="price-group">
-      <h3>包月合作</h3>
-      <p class="note"><strong>月結、不綁約</strong>，可隨時調整級距或暫停。風格長期一致，省去每次重新說明品牌背景的時間。</p>
-      <div class="ptable ptable-2col">
-        <div class="phead">
-          <span>方案</span><span>純視覺</span><span>含行銷規劃</span>
-        </div>
-        <div class="prow2">
-          <span class="pname">每週 1 張<small>每月 4 張圖</small></span>
-          <span class="pcol" data-label="純視覺"><b>NT$ 3,900</b><em>／月</em></span>
-          <span class="pcol hl" data-label="含行銷規劃"><b>NT$ 6,200</b><em>／月</em></span>
-        </div>
-        <div class="prow2">
-          <span class="pname">每週 2 張<small>每月 8 張圖</small></span>
-          <span class="pcol" data-label="純視覺"><b>NT$ 7,600</b><em>／月</em></span>
-          <span class="pcol hl" data-label="含行銷規劃"><b>NT$ 11,400</b><em>／月</em></span>
-        </div>
-        <div class="prow2 rec">
-          <span class="pname">每週 3 張<span class="rec-tag">最多人選</span><small>每月 12 張圖</small></span>
-          <span class="pcol" data-label="純視覺"><b>NT$ 11,200</b><em>／月</em></span>
-          <span class="pcol hl" data-label="含行銷規劃"><b>NT$ 16,400</b><em>／月</em></span>
-        </div>
-        <div class="prow2">
-          <span class="pname">每週 4 張<small>每月 16 張圖</small></span>
-          <span class="pcol" data-label="純視覺"><b>NT$ 14,400</b><em>／月</em></span>
-          <span class="pcol hl" data-label="含行銷規劃"><b>NT$ 20,400</b><em>／月</em></span>
-        </div>
-      </div>
-      <p class="note" style="margin-top:12px">純視覺＝你給方向與文案，我出圖；含行銷規劃＝主題安排、內容方向與文案一起做。</p>
-    </div>
-
-    <div class="price-group">
-      <h3>延伸合作</h3>
-      <p class="note">需要的話可以一起處理，不用另外找人對接。</p>
-      <div class="ptable pext">
-        <div class="prow">
-          <span class="pname">廣告投放
-            <small>可配合投放夥伴，素材與投放一起顧</small></span>
-          <span class="pval">可合作<em>洽談</em></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="terms">
-      <h4>合作條件</h4>
-      <ul>
-        <li>單項委託最低承接金額 NT$ 3,000</li>
-        <li>報價含 2 次修改，第 3 次起按時計費</li>
-        <li>一般交期 7–14 個工作天；急件（7 天內）加收 30%，視檔期接受</li>
-        <li>包月採月結、<strong>不綁約</strong>，可隨時調整級距或暫停；首月建立風格與版型系統</li>
-        <li>包月交付可直接發布的成品圖檔；單項委託完稿含原始檔</li>
-        <li>以上為常見區間，實際報價依專案範圍與商業用途評估</li>
-      </ul>
+  <section class="opening">
+    <p class="standfirst">台北，接案中</p>
+    <h1>從網站到視覺，<br>設計品牌被看見的每一刻</h1>
+    <p class="deck">為值得被記住的品牌，打造專屬視覺。以網站設計為核心，延伸品牌視覺、社群素材與數位推廣。從資訊梳理到視覺呈現，打造一致、清楚且具辨識度的品牌形象。</p>
+    <div class="acts">
+      <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="act">聊聊你的需求</a>
+      <a href="./projects/" class="act ghost">看作品集</a>
     </div>
   </section>
 
-  <section id="flow">
-    <div class="sec-h">
-      <div class="sec-n">PROCESS</div>
+  <section class="part" id="pricing">
+    <div class="side">
+      <h2>服務與報價</h2>
+      <p>依需求規模選擇：<strong>單次委託</strong>、<strong>網站專案</strong>，或<strong>包月合作</strong>。常見項目的價格直接列出來，不用來回問。</p>
+      <p>不確定適合哪一種，直接聊聊，我會告訴你怎麼配比較省。</p>
+    </div>
+    <div class="body">
+
+      <div class="set">
+        <h3>網站設計</h3>
+        <p class="gloss">從設計到切版，交付可直接上線的靜態網頁，含 SEO 基礎設定。</p>
+        <div class="line">
+          <span class="what">一頁式網站<span>單頁形象站、產品介紹頁</span></span>
+          <span class="fig">NT$ 15,000<u>起</u></span>
+        </div>
+        <div class="line">
+          <span class="what">品牌形象網站<span>3–5 頁，含首頁與內頁版型</span></span>
+          <span class="fig">NT$ 35,000<u>起</u></span>
+        </div>
+      </div>
+
+      <div class="set">
+        <h3>廣告與社群視覺</h3>
+        <p class="gloss">單次委託。長期穩定出圖走下方的包月方案，單張成本較低。</p>
+        <div class="line">
+          <span class="what">廣告圖、Banner、社群貼文視覺<span>單一尺寸，3 張起接</span></span>
+          <span class="fig">NT$ 1,000<u>／張</u></span>
+        </div>
+        <div class="line">
+          <span class="what">Landing Page<span>廣告活動落地頁，轉換導向</span></span>
+          <span class="fig">NT$ 15,000<u>起</u></span>
+        </div>
+      </div>
+
+      <div class="set">
+        <h3>包月合作</h3>
+        <p class="gloss"><strong>月結、不綁約</strong>，可隨時調整級距或暫停。風格長期一致，省去每次重新說明品牌背景的時間。</p>
+        <div class="tiers">
+          <div class="hd"><span>方案</span><span>純視覺</span><span>含行銷規劃</span></div>
+          <div class="tier">
+            <span class="what">每週 1 張<span>每月 4 張圖</span></span>
+            <span class="cell" data-k="純視覺"><b>NT$ 3,900</b><u>／月</u></span>
+            <span class="cell" data-k="含行銷規劃"><b>NT$ 6,200</b><u>／月</u></span>
+          </div>
+          <div class="tier">
+            <span class="what">每週 2 張<span>每月 8 張圖</span></span>
+            <span class="cell" data-k="純視覺"><b>NT$ 7,600</b><u>／月</u></span>
+            <span class="cell" data-k="含行銷規劃"><b>NT$ 11,400</b><u>／月</u></span>
+          </div>
+          <div class="tier pick">
+            <span class="what">每週 3 張<span class="pin">最多人選</span><span>每月 12 張圖</span></span>
+            <span class="cell" data-k="純視覺"><b>NT$ 11,200</b><u>／月</u></span>
+            <span class="cell" data-k="含行銷規劃"><b>NT$ 16,400</b><u>／月</u></span>
+          </div>
+          <div class="tier">
+            <span class="what">每週 4 張<span>每月 16 張圖</span></span>
+            <span class="cell" data-k="純視覺"><b>NT$ 14,400</b><u>／月</u></span>
+            <span class="cell" data-k="含行銷規劃"><b>NT$ 20,400</b><u>／月</u></span>
+          </div>
+        </div>
+        <p class="foot-note">純視覺是你給方向與文案、我出圖；含行銷規劃則是主題安排、內容方向與文案一起做。</p>
+      </div>
+
+      <div class="set">
+        <h3>延伸合作</h3>
+        <p class="gloss">需要的話可以一起處理，不用另外找人對接。</p>
+        <div class="line">
+          <span class="what">廣告投放<span>可配合投放夥伴，素材與投放一起顧</span></span>
+          <span class="fig">可合作洽談</span>
+        </div>
+      </div>
+
+      <div class="terms">
+        <h3>合作條件</h3>
+        <ol>
+          <li>單項委託最低承接金額 NT$ 3,000。</li>
+          <li>報價含 2 次修改，第 3 次起按時計費。</li>
+          <li>一般交期 7–14 個工作天；急件（7 天內）加收 30%，視檔期接受。</li>
+          <li>包月採月結、<strong>不綁約</strong>，可隨時調整級距或暫停；首月建立風格與版型系統。</li>
+          <li>包月交付可直接發布的成品圖檔；單項委託完稿含原始檔。</li>
+          <li>以上為常見區間，實際報價依專案範圍與商業用途評估。</li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="part" id="process">
+    <div class="side">
       <h2>合作流程</h2>
       <p>從第一次聊到交付，你會知道每個階段在發生什麼。</p>
     </div>
-    <div class="flow">
-      <div class="step"><span class="n">01</span>
-        <h4>諮詢與報價</h4>
-        <p>說明需求與時程，我回覆做法建議與報價，確認範圍後開始。</p>
-      </div>
-      <div class="step"><span class="n">02</span>
-        <h4>需求對焦</h4>
-        <p>釐清目標受眾、想傳達什麼、參考風格，先把方向講清楚再動手。</p>
-      </div>
-      <div class="step"><span class="n">03</span>
-        <h4>設計執行</h4>
-        <p>提案初稿、依回饋調整。修改次數與範圍在報價時就寫清楚。</p>
-      </div>
-      <div class="step"><span class="n">04</span>
-        <h4>交付與後續</h4>
-        <p>交付可直接使用的成品檔。網站案含上線前檢查與交接說明。</p>
+    <div class="body">
+      <div class="steps">
+        <div class="step">
+          <div>
+            <h4>諮詢與報價</h4>
+            <p>說明需求與時程，我回覆做法建議與報價，確認範圍後開始。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h4>需求對焦</h4>
+            <p>釐清目標受眾、想傳達什麼、參考風格，先把方向講清楚再動手。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h4>設計執行</h4>
+            <p>提案初稿、依回饋調整。修改次數與範圍在報價時就寫清楚。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h4>交付與後續</h4>
+            <p>交付可直接使用的成品檔。網站案含上線前檢查與交接說明。</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="contact" id="contact">
+  <section class="close" id="contact">
     <h2>有想做的東西，先聊聊看</h2>
     <p>不用先想清楚所有細節。告訴我你想解決什麼，我會給你做法建議與大概的預算級距。</p>
-    <div class="links">
-      <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener">LINE @208bjlaw</a>
-      <a href="mailto:vera83610942@gmail.com">vera83610942@gmail.com</a>
+    <div class="reach">
+      <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener"><em>LINE</em>@208bjlaw</a>
+      <a href="mailto:vera83610942@gmail.com"><em>Email</em>vera83610942@gmail.com</a>
     </div>
-  </div>
+  </section>
 
-  <footer>
+  <div class="colophon">
     <span>© 2026 Vera Liu</span>
-    <span><a href="./projects/">作品集</a>　·　<a href="./projects/about.html">關於我</a></span>
-  </footer>
+    <span><a href="./projects/">作品集</a>　<a href="./projects/about.html">關於我</a></span>
+  </div>
 
 </div>
 </body>
