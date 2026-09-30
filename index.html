@@ -82,10 +82,10 @@ a{color:inherit}
 .act.ghost:hover{border-color:var(--ink)}
 
 /* ── 通用區段：不對稱雙欄 ─────────────── */
-.part{display:grid;grid-template-columns:230px 1fr;gap:56px;
-  padding:72px 0;border-bottom:1px solid var(--rule)}
+.part{padding:72px 0;border-bottom:1px solid var(--rule)}
+.part > .side{margin-bottom:38px;max-width:48ch}
 .part > .side h2{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1.45;letter-spacing:.015em}
-.part > .side p{margin-top:16px;font-size:13px;line-height:1.9;color:var(--ink-4)}
+.part > .side p{margin-top:14px;font-size:14px;line-height:1.9;color:var(--ink-4)}
 .part > .side p strong{color:var(--ink);font-weight:500}
 .body{min-width:0}
 
@@ -167,7 +167,8 @@ a{color:inherit}
 
 /* ── 響應式 ─────────────────────────── */
 @media (max-width:900px){
-  .part{grid-template-columns:1fr;gap:26px;padding:54px 0}
+  .part{padding:54px 0}
+  .part > .side{margin-bottom:28px}
   .part > .side h2{font-size:23px}
 }
 @media (max-width:640px){
@@ -222,13 +223,13 @@ a{color:inherit}
   <section class="part" id="pricing">
     <div class="side">
       <h2>服務與報價</h2>
-      <p><strong>單次委託</strong>、<strong>網站專案</strong>，或<strong>包月合作</strong>。價格直接列出來，不確定適合哪一種就直接聊，我會告訴你怎麼配比較省。</p>
+      <p>價格直接列出來，不用來回問。不確定適合哪一種就直接聊，我會告訴你怎麼配比較省。</p>
     </div>
     <div class="body">
 
       <div class="set">
-        <h3>網站設計</h3>
-        <p class="gloss">交付可直接上線的靜態網頁，含 SEO 基礎設定。</p>
+        <h3>單項委託</h3>
+        <p class="gloss">有明確的單一需求，做完交付。網站類交付可直接上線的靜態網頁，含 SEO 基礎設定。</p>
         <div class="line">
           <span class="what">一頁式網站<span>單頁形象站、產品介紹頁</span></span>
           <span class="fig">NT$ 15,000<u>起</u></span>
@@ -237,23 +238,18 @@ a{color:inherit}
           <span class="what">品牌形象網站<span>3–5 頁</span></span>
           <span class="fig">NT$ 35,000<u>起</u></span>
         </div>
-      </div>
-
-      <div class="set">
-        <h3>廣告與社群視覺</h3>
-        <p class="gloss">單次委託；長期穩定出圖走包月更省。</p>
-        <div class="line">
-          <span class="what">廣告圖、Banner、社群貼文視覺<span>3 張起接</span></span>
-          <span class="fig">NT$ 1,000<u>／張</u></span>
-        </div>
         <div class="line">
           <span class="what">Landing Page<span>廣告活動落地頁</span></span>
           <span class="fig">NT$ 15,000<u>起</u></span>
         </div>
+        <div class="line">
+          <span class="what">廣告圖、Banner、社群貼文視覺<span>3 張起接</span></span>
+          <span class="fig">NT$ 1,000<u>／張</u></span>
+        </div>
       </div>
 
       <div class="set">
-        <h3>包月合作</h3>
+        <h3>包月委託</h3>
         <p class="gloss"><strong>月結、不綁約</strong>，可隨時調整或暫停。風格長期一致，不用每次重講品牌背景。</p>
         <div class="tiers">
           <div class="hd"><span>方案</span><span>純視覺</span><span>含行銷規劃</span></div>
@@ -278,26 +274,23 @@ a{color:inherit}
             <span class="cell" data-k="含行銷規劃"><b>NT$ 20,400</b><u>／月</u></span>
           </div>
         </div>
-        <p class="foot-note">純視覺＝你給方向與文案；含行銷規劃＝主題與文案一起做。</p>
+        <p class="foot-note">含行銷規劃＝主題安排與文案一起做。</p>
       </div>
 
       <div class="set">
-        <h3>延伸合作</h3>
+        <h3>額外合作</h3>
         <div class="line">
-          <span class="what">廣告投放<span>可配合投放夥伴</span></span>
+          <span class="what">廣告投放<span>可配合投放夥伴，素材與投放一起顧</span></span>
           <span class="fig">可合作洽談</span>
         </div>
         <p class="scope">以上為常見區間，實際依專案範圍報價。</p>
       </div>
-
-
     </div>
   </section>
 
   <section class="part" id="process">
     <div class="side">
       <h2>合作流程</h2>
-      <p>從第一次聊到交付，每個階段都知道在發生什麼。</p>
     </div>
     <div class="body">
       <div class="steps">
