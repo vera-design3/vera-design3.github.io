@@ -1,146 +1,221 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vera — 網站設計 × 品牌視覺</title>
-    <meta name="description" content="Vera — 以網站設計為核心，延伸品牌視覺、社群素材與數位推廣。8 年商業設計經驗，合作品牌包含 PHILIPS、SHARP、Belkin。" />
-    <link rel="shortcut icon" href="./images/index/link.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vera — 網站設計 × 品牌視覺｜接案服務</title>
+<meta name="description" content="以網站設計為核心，延伸品牌視覺、社群素材與數位推廣。8 年商業設計經驗，提供單項設計、網站建置與包月合作。" />
+<link rel="shortcut icon" href="./projects/images/index/link.png">
+<link rel="apple-touch-icon" href="./projects/images/index/apple.png">
 
-    <meta property="og:title" content="Vera — 商業平面設計接案" />
-    <meta property="og:description" content="Vera — 8 年商業設計，廣告圖、貼文、LP 介紹頁，交稿準時率 100%。" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://vera-design3.github.io/" />
-    <meta property="og:image" content="https://vera-design3.github.io/images/index/og-home.png" />
-    <link href="./images/index/apple.png" rel="apple-touch-icon" />
+<meta property="og:title" content="Vera — 網站設計 × 品牌視覺｜接案服務" />
+<meta property="og:description" content="以網站設計為核心，延伸品牌視覺、社群素材與數位推廣。8 年商業設計經驗。" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://vera-design3.github.io/" />
+<meta property="og:image" content="https://vera-design3.github.io/projects/images/index/og-home.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://vera-design3.github.io/" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style-new.css?v=20260820b">
-    <script src="./js/layout-new.js?v=20260820b"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F4F2; --surface:#FFFFFF; --ink:#1A1A1A; --muted:#8A8A8A;
+  --line:#E2E2DE; --lime:#D7F367;
+  --sans:"Inter","Noto Sans TC",-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.75;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(244,244,242,.92);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1080px;margin:0 auto;padding:0 28px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;min-height:62px}
+.brand{font-weight:700;font-size:15px;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+.brand span{color:var(--muted);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:.18s}
+.nav-links a:hover{color:var(--ink)}
+.cta{background:var(--ink);color:#fff!important;padding:9px 18px;border-radius:100px;font-size:13.5px}
+.cta:hover{opacity:.85}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 100px}
+.hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--muted);margin-bottom:20px}
+h1{font-size:clamp(32px,5.6vw,54px);line-height:1.22;font-weight:700;letter-spacing:-.025em;max-width:17ch}
+h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--lime) 62%)}
+.sub{margin-top:24px;color:#4A4A48;max-width:56ch;font-size:16px}
+.hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-size:14.5px;font-weight:600;padding:13px 26px;border-radius:100px;transition:.18s}
+.btn-a{background:var(--ink);color:#fff}
+.btn-a:hover{opacity:.85}
+.btn-b{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-b:hover{border-color:var(--ink)}
+
+section{padding-top:76px}
+.sec-h{margin-bottom:34px}
+.sec-n{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.sec-h h2{font-size:clamp(22px,3.2vw,30px);font-weight:700;letter-spacing:-.015em;margin-top:8px}
+.sec-h p{margin-top:12px;color:var(--muted);max-width:52ch;font-size:14.5px}
+
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 28px;transition:.2s}
+.card:hover{border-color:#CFCFC9;transform:translateY(-2px)}
+.card h3{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.card .en{font-size:11.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+.card p{margin-top:12px;font-size:14px;color:#57574F;line-height:1.7}
+.card ul{margin-top:16px;list-style:none;display:grid;gap:7px}
+.card li{font-size:13.5px;color:var(--muted);padding-left:15px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--lime)}
+
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.step{position:relative;padding-top:26px;border-top:2px solid var(--ink)}
+.step:nth-child(n+2){border-top-color:var(--line)}
+.step .n{position:absolute;top:-13px;left:0;background:var(--bg);padding-right:10px;
+  font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+.step h4{font-size:15.5px;font-weight:700}
+.step p{margin-top:8px;font-size:13.5px;color:var(--muted);line-height:1.7}
+
+.contact{margin-top:76px;background:var(--ink);color:#fff;border-radius:20px;padding:56px 48px;
+  position:relative;overflow:hidden}
+.contact::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;
+  border-radius:50%;background:var(--lime);opacity:.16}
+.contact h2{font-size:clamp(23px,3.4vw,32px);font-weight:700;letter-spacing:-.02em;max-width:20ch;position:relative}
+.contact p{margin-top:14px;color:rgba(255,255,255,.7);max-width:46ch;font-size:15px;position:relative}
+.links{margin-top:32px;display:flex;gap:28px;flex-wrap:wrap;position:relative}
+.links a{color:#fff;text-decoration:none;font-size:15px;font-weight:600;
+  border-bottom:2px solid var(--lime);padding-bottom:3px}
+
+footer{margin-top:72px;padding-top:26px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+
+@media (max-width:860px){
+  .svc,.flow{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .wrap,.nav-in{padding-left:20px;padding-right:20px}
+  .hero{padding:60px 0 48px}
+  .svc,.flow{grid-template-columns:1fr}
+  .contact{padding:40px 26px}
+  .nav-links{gap:14px}
+  .nav-links .hide-sm{display:none}
+}
+</style>
 </head>
-
 <body>
-    <main class="wrap">
-        <section class="hero">
-            <p class="eyebrow">網站設計 × 品牌視覺 · 台北</p>
-            <h1>從網站到視覺，<br><em>設計品牌被看見的每一刻</em></h1>
-            <p class="sub">
-                為值得被記住的品牌，打造專屬視覺。<br class="sub-br">以網站設計為核心，延伸品牌視覺、社群素材與數位推廣。從資訊梳理到視覺呈現，打造一致、清楚且具辨識度的品牌形象。
-            </p>
-            <div class="tags filters" id="workFilters">
-                <span class="active" data-cat="all">全部作品</span>
-                <span data-cat="uiux">網站 · UI/UX</span>
-                <span data-cat="lp">LP 介紹頁</span>
-                <span data-cat="brand">品牌視覺</span>
-                <span data-cat="ad">廣告圖設計</span>
-                <span data-cat="social">貼文 / 限時動態</span>
-            </div>
-        </section>
 
-        <section class="work">
-            <div class="grid" id="workGrid">
-                <a href="./project-MYFEEL%20UIUX.html" class="card" data-tags="uiux">
-                    <div class="thumb"><img loading="lazy" src="./images/Project/cover-myfeel-platform.webp" alt="MYFEEL 集資平台"></div>
-                    <div class="meta"><h3>MYFEEL 集資平台</h3><span class="cat">UI/UX</span></div>
-                </a>
-                <a href="./project-zangan.html" class="card" data-tags="uiux">
-                    <div class="thumb"><img loading="lazy" src="./images/Project/cover-zangan.webp" alt="蘵感美學補習班"></div>
-                    <div class="meta"><h3>蘵感美學補習班</h3><span class="cat">UI/UX · Front-end</span></div>
-                </a>
-                <a href="./project-gym-mars.html" class="card" data-tags="social ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/gym-mars/cover-8.webp" alt="gym mars 健身房"></div>
-                    <div class="meta"><h3>gym mars 健身房</h3><span class="cat">gym mars</span></div>
-                </a>
-                <a href="./project-mars.html" class="card" data-tags="ad social">
-                    <div class="thumb"><img loading="lazy" src="./images/work/mars/cover-5.webp" alt="MARS 高蛋白粉"></div>
-                    <div class="meta"><h3>MARS 高蛋白粉</h3><span class="cat">MARS</span></div>
-                </a>
-                <a href="./project-legin.html" class="card" data-tags="social ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/legin%20%E7%9A%AE%E6%8B%89%E6%8F%90%E6%96%AF/cover-6.webp" alt="Legin 皮拉提斯"></div>
-                    <div class="meta"><h3>Legin 皮拉提斯</h3><span class="cat">Legin</span></div>
-                </a>
-                <a href="./project-marais-618.html" class="card" data-tags="ad brand">
-                    <div class="thumb"><img loading="lazy" src="./images/work/marais-618/cover-7.webp" alt="MARAIS 618 理想生活提案"></div>
-                    <div class="meta"><h3>MARAIS 618 理想生活提案</h3><span class="cat">MARAIS</span></div>
-                </a>
-                <a href="./project-newyear.html" class="card" data-tags="ad brand">
-                    <div class="thumb"><img loading="lazy" src="./images/work/newyear/cover.webp" alt="團圓年菜大賞"></div>
-                    <div class="meta"><h3>團圓年菜大賞</h3><span class="cat">MARAIS</span></div>
-                </a>
-                <a href="./project-PHILIPS.html" class="card" data-tags="lp ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/philips/cover.webp" alt="PHILIPS 白小奈空氣清淨機"></div>
-                    <div class="meta"><h3>PHILIPS 白小奈</h3><span class="cat">PHILIPS</span></div>
-                </a>
-                <a href="./project-sharp-hairdryer.html" class="card" data-tags="lp ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/sharp-hairdryer/cover-1.webp" alt="SHARP 雙氣流智慧吹風機"></div>
-                    <div class="meta"><h3>SHARP 雙氣流吹風機</h3><span class="cat">SHARP</span></div>
-                </a>
-                <a href="./project-belkin.html" class="card" data-tags="lp ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/belkin/cover.webp" alt="Belkin SOUNDFORM Immerse 降噪耳機"></div>
-                    <div class="meta"><h3>Belkin Immerse 降噪耳機</h3><span class="cat">Belkin</span></div>
-                </a>
-                <a href="./project-sharp-allday.html" class="card" data-tags="lp ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/sharp-allday/cover-3.webp" alt="SHARP all day"></div>
-                    <div class="meta"><h3>SHARP all day</h3><span class="cat">SHARP</span></div>
-                </a>
-                <a href="./project-niconico-snack.html" class="card" data-tags="lp ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/niconico-snack/cover-2.webp" alt="NICONICO 小食曆"></div>
-                    <div class="meta"><h3>NICONICO 小食曆</h3><span class="cat">NICONICO</span></div>
-                </a>
-                <a href="./project-niconico-skewer.html" class="card" data-tags="lp ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/niconico-skewer/cover-4.webp" alt="NICONICO 旋轉吧！串串"></div>
-                    <div class="meta"><h3>NICONICO 旋轉吧！串串</h3><span class="cat">NICONICO</span></div>
-                </a>
-                <a href="./project-baby.html" class="card" data-tags="lp ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/baby/cover-12.webp" alt="寶寶吹風機"></div>
-                    <div class="meta"><h3>寶寶吹風機</h3><span class="cat">BLAUPUNKT</span></div>
-                </a>
-                <a href="./project-furimori.html" class="card" data-tags="lp ad">
-                    <div class="thumb"><img loading="lazy" src="./images/work/FURIMORI%20%E5%92%96%E5%95%A1%E6%A9%9F/cover-3.webp" alt="FURIMORI 咖啡機"></div>
-                    <div class="meta"><h3>FURIMORI 咖啡機</h3><span class="cat">FURIMORI</span></div>
-                </a>
-                <a href="./project-queen-day.html" class="card" data-tags="ad brand">
-                    <div class="thumb"><img loading="lazy" src="./images/work/queen-day/cover-11.webp" alt="38 購物女王節"></div>
-                    <div class="meta"><h3>38 購物女王節</h3><span class="cat">MARAIS</span></div>
-                </a>
-            </div>
-            <p class="work-empty" id="workEmpty" hidden>此分類暫無作品</p>
-        </section>
-    </main>
+<div class="nav"><div class="nav-in">
+  <a href="./" class="brand">Vera <span>· Design</span></a>
+  <nav class="nav-links">
+    <a href="#services" class="hide-sm">服務</a>
+    <a href="#flow" class="hide-sm">流程</a>
+    <a href="./projects/">作品集</a>
+    <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="cta">聊聊需求</a>
+  </nav>
+</div></div>
 
-    <script>
-        (function () {
-            var filters = document.querySelectorAll('#workFilters span');
-            var cards = document.querySelectorAll('#workGrid .card');
-            var empty = document.getElementById('workEmpty');
-            function apply(cat) {
-                var shown = 0;
-                filters.forEach(function (x) { x.classList.toggle('active', x.dataset.cat === cat); });
-                cards.forEach(function (card) {
-                    var tags = (card.dataset.tags || '').split(' ');
-                    var on = (cat === 'all' || tags.indexOf(cat) !== -1);
-                    card.style.display = on ? '' : 'none';
-                    // 篩選後顯示的卡片確保可見（避免進場動畫殘留 opacity 0）
-                    if (on) { card.classList.add('is-visible'); shown++; }
-                });
-                if (empty) empty.hidden = shown !== 0;
-            }
-            filters.forEach(function (f) {
-                f.addEventListener('click', function () { apply(f.dataset.cat); });
-            });
-            // 從漢堡選單帶 ?cat= 進來時，自動套用該分類篩選並捲到作品區
-            var cat = new URLSearchParams(location.search).get('cat');
-            var valid = ['ad', 'social', 'lp', 'brand', 'uiux'];
-            if (cat && valid.indexOf(cat) !== -1) {
-                apply(cat);
-                var work = document.querySelector('.work');
-                if (work) work.scrollIntoView();
-            }
-        })();
-    </script>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">網站設計 × 品牌視覺 · 台北</p>
+    <h1>從網站到視覺，<br><em>設計品牌被看見的每一刻</em></h1>
+    <p class="sub">為值得被記住的品牌，打造專屬視覺。以網站設計為核心，延伸品牌視覺、社群素材與數位推廣。從資訊梳理到視覺呈現，打造一致、清楚且具辨識度的品牌形象。</p>
+    <div class="hero-cta">
+      <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="btn btn-a">聊聊你的需求</a>
+      <a href="./projects/" class="btn btn-b">看作品集 →</a>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="sec-h">
+      <div class="sec-n">SERVICES</div>
+      <h2>三種合作方式</h2>
+      <p>依需求規模選擇。不確定適合哪一種，直接聊聊，我會告訴你怎麼配比較省。</p>
+    </div>
+    <div class="svc">
+      <div class="card">
+        <div class="en">SINGLE PROJECT</div>
+        <h3>單項設計</h3>
+        <p>有明確的單一需求，做完交付完稿。</p>
+        <ul>
+          <li>廣告圖 · Banner</li>
+          <li>社群貼文視覺</li>
+          <li>活動主視覺</li>
+          <li>品牌識別</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="en">WEB DESIGN</div>
+        <h3>網站設計</h3>
+        <p>從設計到切版，交付可直接上線的靜態網頁。</p>
+        <ul>
+          <li>一頁式介紹頁 · LP</li>
+          <li>活動頁 · 集資頁</li>
+          <li>品牌形象網站</li>
+          <li>含 SEO 基礎設定</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="en">MONTHLY</div>
+        <h3>包月合作</h3>
+        <p>每月固定產出，省去每次重新說明品牌背景的時間。</p>
+        <ul>
+          <li>社群視覺包月</li>
+          <li>廣告素材定期更新</li>
+          <li>品牌風格一致維護</li>
+          <li>方案內容依需求討論</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="sec-h">
+      <div class="sec-n">PROCESS</div>
+      <h2>合作流程</h2>
+      <p>從第一次聊到交付，你會知道每個階段在發生什麼。</p>
+    </div>
+    <div class="flow">
+      <div class="step"><span class="n">01</span>
+        <h4>諮詢與報價</h4>
+        <p>說明需求與時程，我回覆做法建議與報價，確認範圍後開始。</p>
+      </div>
+      <div class="step"><span class="n">02</span>
+        <h4>需求對焦</h4>
+        <p>釐清目標受眾、想傳達什麼、參考風格，先把方向講清楚再動手。</p>
+      </div>
+      <div class="step"><span class="n">03</span>
+        <h4>設計執行</h4>
+        <p>提案初稿、依回饋調整。修改次數與範圍在報價時就寫清楚。</p>
+      </div>
+      <div class="step"><span class="n">04</span>
+        <h4>交付與後續</h4>
+        <p>交付可直接使用的成品檔。網站案含上線前檢查與交接說明。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <h2>有想做的東西，先聊聊看</h2>
+    <p>不用先想清楚所有細節。告訴我你想解決什麼，我會給你做法建議與大概的預算級距。</p>
+    <div class="links">
+      <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener">LINE @208bjlaw</a>
+      <a href="mailto:vera83610942@gmail.com">vera83610942@gmail.com</a>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2026 Vera Liu</span>
+    <span><a href="./projects/">作品集</a>　·　<a href="./projects/about.html">關於我</a></span>
+  </footer>
+
+</div>
 </body>
-
 </html>

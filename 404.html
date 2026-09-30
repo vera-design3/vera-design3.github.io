@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>頁面已搬家 — Vera</title>
+<link rel="shortcut icon" href="/projects/images/index/link.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F2;--ink:#1A1A1A;--muted:#8A8A8A;--lime:#D7F367;--line:#E2E2DE}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:center;padding:24px;
+ font-family:"Inter","Noto Sans TC",-apple-system,"PingFang TC",sans-serif;text-align:center;line-height:1.7}
+.box{max-width:32rem}
+.tag{display:inline-block;background:var(--lime);font-size:11px;font-weight:700;letter-spacing:.12em;
+ padding:5px 12px;border-radius:100px;margin-bottom:22px}
+h1{font-size:clamp(23px,5vw,32px);font-weight:700;letter-spacing:-.02em;line-height:1.35}
+p{margin-top:14px;color:var(--muted);font-size:14.5px}
+.links{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.links a{text-decoration:none;font-size:14.5px;font-weight:600;padding:12px 24px;border-radius:100px;transition:.18s}
+.a1{background:var(--ink);color:#fff}
+.a1:hover{opacity:.85}
+.a2{color:var(--ink);border:1px solid var(--line)}
+.a2:hover{border-color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="box">
+  <span class="tag">頁面已搬家</span>
+  <h1 id="h">作品集搬到新的位置了</h1>
+  <p id="p">正在帶你過去，如果沒有自動跳轉請點下方。</p>
+  <div class="links">
+    <a href="/projects/" class="a1">前往作品集</a>
+    <a href="/" class="a2">回首頁</a>
+  </div>
+</div>
+<script>
+(function(){
+  // 舊網址在根目錄，現在全部搬進 /projects/
+  // 例：/project-belkin.html → /projects/project-belkin.html
+  var p = location.pathname.replace(/^\/+/, "");
+  var target = "/projects/";
+  if (/^(project-.*|about|index)\.html$/i.test(decodeURIComponent(p))) {
+    target = "/projects/" + p;
+  } else if (/^(css|js|images)\//i.test(p)) {
+    target = "/projects/" + p;
+  }
+  location.replace(target + location.search + location.hash);
+})();
+</script>
+</body>
+</html>
