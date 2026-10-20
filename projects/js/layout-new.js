@@ -6,6 +6,7 @@ const SITE_NEW = {
   email: "vera83610942@gmail.com",
   line: "https://line.me/ti/p/~@208bjlaw",
   resume: "./Vera Resume.pdf",
+  home: "/",
   projects: "./index.html",
   about: "./about.html",
 };
@@ -13,8 +14,9 @@ const SITE_NEW = {
 const navHTML = `
 <header class="nav">
   <div class="nav-inner">
-    <a href="${SITE_NEW.projects}" class="brand">Vera <span>· Designer</span></a>
+    <a href="${SITE_NEW.home}" class="brand">Vera <span>· Designer</span></a>
     <nav class="nav-links" id="navLinks">
+      <a href="${SITE_NEW.home}">服務與報價</a>
       <a href="${SITE_NEW.projects}">Projects</a>
       <div class="nav-cats">
         <a href="${SITE_NEW.projects}?cat=uiux">網站 · UI/UX</a>
@@ -40,6 +42,7 @@ const footHTML = `
     <div class="foot-row">
       <span>© <span id="yr"></span> Vera — Taipei, Taiwan</span>
       <span class="links">
+        <a href="${SITE_NEW.home}">服務與報價</a>
         <a href="${SITE_NEW.about}">About</a>
         <a href="mailto:${SITE_NEW.email}">Email</a>
         <a href="${SITE_NEW.line}" target="_blank" rel="noopener">LINE</a>
