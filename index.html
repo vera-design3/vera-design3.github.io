@@ -135,6 +135,33 @@ a{color:inherit}
   letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-left:10px;vertical-align:2px}
 .note{margin-top:20px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-2)}
 
+/* 主打區塊 */
+.feat{background:var(--white);border-radius:18px;padding:36px 34px 30px;margin-top:30px}
+.feat + .feat{margin-top:20px}
+.feat .fh{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.feat h3{font-size:23px;font-weight:600;letter-spacing:-.025em;line-height:1.3}
+.feat .kick{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);background:var(--grey);padding:5px 10px;border-radius:4px;white-space:nowrap}
+.feat .val{margin-top:10px;max-width:46ch;font-size:14.5px;line-height:1.8;color:var(--ink-3)}
+.feat .val strong{color:var(--ink);font-weight:600}
+.feat .rows,.feat .tiers{margin-top:24px;border-top:1px solid var(--line)}
+.feat .row,.feat .trow{padding-left:0;padding-right:0}
+.feat .row:last-child,.feat .trow:last-child{border-bottom:none}
+
+/* 次要區塊 */
+.minor{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.minor .mh{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+.minor h3{font-size:14px;font-weight:600;letter-spacing:-.01em}
+.minor .mh span{font-family:var(--mono);font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-2)}
+.minor .row{padding:16px 2px}
+.minor .nm{font-size:14.5px}
+.minor .pr{font-size:14.5px}
+@media (max-width:640px){
+  .feat{padding:26px 20px 22px;border-radius:14px}
+  .feat h3{font-size:20px}
+}
+
 /* 流程 */
 .steps{margin-top:44px;position:relative;padding-left:62px}
 .steps .rail-bg,.steps .rail-on{position:absolute;left:14px;top:22px;width:2px}
@@ -247,57 +274,71 @@ a{color:inherit}
     <h2>服務與報價</h2>
     <p class="lede">價格直接列出來，不用來回問。不確定適合哪一種就直接聊。</p>
 
-    <div class="grp"><h3>單項委託</h3><span>One-off</span></div>
-    <div class="rows">
-      <div class="row"><span class="n">01</span>
-        <span class="nm">一頁式網站</span>
-        <span class="pr">NT$ 15,000<u>起</u></span>
-        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
-      <div class="row"><span class="n">02</span>
-        <span class="nm">品牌形象網站<small>3–5 pages</small></span>
-        <span class="pr">NT$ 35,000<u>起</u></span>
-        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
-      <div class="row"><span class="n">03</span>
-        <span class="nm">Landing Page</span>
-        <span class="pr">NT$ 15,000<u>起</u></span>
-        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
-      <div class="row"><span class="n">04</span>
-        <span class="nm">廣告圖、Banner、社群貼文視覺<small>min. 3 pcs</small></span>
-        <span class="pr">NT$ 1,000<u>／張</u></span>
-        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
+    <div class="feat">
+      <div class="fh">
+        <h3>網站設計</h3>
+        <span class="kick">One-off · 含 SEO 設定</span>
+      </div>
+      <p class="val">從設計到切版，交付<strong>可直接上線</strong>的靜態網頁。不需要你再找工程師，也不用自己學後台。</p>
+      <div class="rows">
+        <div class="row"><span class="n">01</span>
+          <span class="nm">一頁式網站</span>
+          <span class="pr">NT$ 15,000<u>起</u></span>
+          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+        <div class="row"><span class="n">02</span>
+          <span class="nm">品牌形象網站<small>3–5 pages</small></span>
+          <span class="pr">NT$ 35,000<u>起</u></span>
+          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+        <div class="row"><span class="n">03</span>
+          <span class="nm">Landing Page</span>
+          <span class="pr">NT$ 15,000<u>起</u></span>
+          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+      </div>
     </div>
 
-    <div class="grp"><h3>包月委託</h3><span>Monthly · 不綁約</span></div>
-    <div class="tiers">
-      <div class="thd"><span></span><span>方案</span><span>純視覺</span><span>含行銷規劃</span><span></span></div>
-      <div class="trow"><span class="n">01</span>
-        <span class="nm">每月 4 張</span>
-        <span class="c" data-k="純視覺"><b>NT$ 3,900</b><u>／月</u></span>
-        <span class="c" data-k="含行銷規劃"><b>NT$ 6,200</b><u>／月</u></span>
-        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個方案">→</a></div>
-      <div class="trow"><span class="n">02</span>
-        <span class="nm">每月 8 張</span>
-        <span class="c" data-k="純視覺"><b>NT$ 7,600</b><u>／月</u></span>
-        <span class="c" data-k="含行銷規劃"><b>NT$ 11,400</b><u>／月</u></span>
-        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個方案">→</a></div>
-      <div class="trow pick"><span class="n">03</span>
-        <span class="nm">每月 12 張<span class="chip">Popular</span></span>
-        <span class="c" data-k="純視覺"><b>NT$ 11,200</b><u>／月</u></span>
-        <span class="c" data-k="含行銷規劃"><b>NT$ 16,400</b><u>／月</u></span>
-        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個方案">→</a></div>
-      <div class="trow"><span class="n">04</span>
-        <span class="nm">每月 16 張</span>
-        <span class="c" data-k="純視覺"><b>NT$ 14,400</b><u>／月</u></span>
-        <span class="c" data-k="含行銷規劃"><b>NT$ 20,400</b><u>／月</u></span>
-        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個方案">→</a></div>
+    <div class="feat">
+      <div class="fh">
+        <h3>包月委託</h3>
+        <span class="kick">Monthly · 不綁約</span>
+      </div>
+      <p class="val">每月固定出圖，風格長期一致。<strong>月結、隨時可調整或暫停</strong>，不用先承諾半年。</p>
+      <div class="tiers">
+        <div class="thd"><span></span><span>方案</span><span>純視覺</span><span>含行銷規劃</span><span></span></div>
+        <div class="trow"><span class="n">01</span>
+          <span class="nm">每月 4 張</span>
+          <span class="c" data-k="純視覺"><b>NT$ 3,900</b><u>／月</u></span>
+          <span class="c" data-k="含行銷規劃"><b>NT$ 6,200</b><u>／月</u></span>
+          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+        <div class="trow"><span class="n">02</span>
+          <span class="nm">每月 8 張</span>
+          <span class="c" data-k="純視覺"><b>NT$ 7,600</b><u>／月</u></span>
+          <span class="c" data-k="含行銷規劃"><b>NT$ 11,400</b><u>／月</u></span>
+          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+        <div class="trow pick"><span class="n">03</span>
+          <span class="nm">每月 12 張<span class="chip">Popular</span></span>
+          <span class="c" data-k="純視覺"><b>NT$ 11,200</b><u>／月</u></span>
+          <span class="c" data-k="含行銷規劃"><b>NT$ 16,400</b><u>／月</u></span>
+          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+        <div class="trow"><span class="n">04</span>
+          <span class="nm">每月 16 張</span>
+          <span class="c" data-k="純視覺"><b>NT$ 14,400</b><u>／月</u></span>
+          <span class="c" data-k="含行銷規劃"><b>NT$ 20,400</b><u>／月</u></span>
+          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+      </div>
     </div>
 
-    <div class="grp"><h3>額外合作</h3><span>Add-on</span></div>
-    <div class="rows">
-      <div class="row"><span class="n">01</span>
-        <span class="nm">廣告投放</span>
-        <span class="pr">可合作洽談</span>
-        <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問這個項目">→</a></div>
+    <div class="minor">
+      <div class="mh"><h3>其他</h3><span>Also available</span></div>
+      <div class="rows">
+        <div class="row"><span class="n">01</span>
+          <span class="nm">廣告圖、Banner、社群貼文視覺<small>min. 3 pcs</small></span>
+          <span class="pr">NT$ 1,000<u>／張</u></span>
+          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+        <div class="row"><span class="n">02</span>
+          <span class="nm">廣告投放</span>
+          <span class="pr">可合作洽談</span>
+          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+      </div>
     </div>
 
     <p class="note">以上為常見區間，實際依專案範圍報價。</p>
