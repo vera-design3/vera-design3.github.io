@@ -163,6 +163,42 @@ a{color:inherit}
   .feat h3{font-size:20px}
 }
 
+/* 關於 */
+.about-lead{margin-top:26px;max-width:52ch;font-size:17px;line-height:1.75;font-weight:500;letter-spacing:-.01em}
+.about-body{margin-top:18px;max-width:50ch;font-size:15px;line-height:1.9;color:var(--ink-3)}
+.about-scope{margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-2)}
+.stats{margin-top:44px;display:grid;grid-template-columns:repeat(3,auto);gap:56px;justify-content:start}
+.stat b{display:block;font-size:clamp(30px,4vw,44px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.stat span{display:block;margin-top:9px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.brands{margin-top:48px;padding-top:26px;border-top:1px solid var(--line)}
+.brands h5{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);margin-bottom:20px}
+.brands ul{list-style:none;display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center}
+.brands img{height:26px;width:auto;opacity:.5;filter:grayscale(1);transition:.2s}
+.brands li:hover img{opacity:.9;filter:grayscale(0)}
+
+/* 精選作品 */
+.picks{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pick-card{display:block;text-decoration:none;group:}
+.pick-card .ph{aspect-ratio:4/5;overflow:hidden;border-radius:12px;background:var(--grey)}
+.pick-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.pick-card:hover img{transform:scale(1.04)}
+.pick-card .cap{margin-top:12px;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.pick-card h4{font-size:14.5px;font-weight:500;letter-spacing:-.005em}
+.pick-card em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.picks-more{margin-top:30px}
+
+@media (max-width:860px){ .picks{grid-template-columns:repeat(2,1fr)} .stats{gap:34px} }
+@media (max-width:640px){
+  .picks{grid-template-columns:repeat(2,1fr);gap:12px}
+  .stats{grid-template-columns:repeat(3,1fr);gap:18px}
+  .stat b{font-size:26px}
+  .brands img{height:20px}
+}
+
 /* 流程 */
 .steps{margin-top:44px;position:relative;padding-left:62px}
 .steps .rail-bg,.steps .rail-on{position:absolute;left:14px;top:22px;width:2px}
@@ -242,12 +278,12 @@ a{color:inherit}
 <header class="band b-white nav">
   <div class="inner">
     <div class="nav-grp">
-      <a href="./" class="brand">©Vera</a>
+      <a href="./" class="brand">©LOOOK</a>
       <nav class="nav-l" id="navL">
+        <a href="#about">關於</a>
+        <a href="#work">作品</a>
         <a href="#pricing">報價</a>
-        <a href="#process">流程</a>
         <a href="/projects/">作品集</a>
-        <a href="/projects/about.html">關於我</a>
       </nav>
     </div>
     <span class="sp"></span>
@@ -265,6 +301,76 @@ a{color:inherit}
     <div class="acts">
       <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="pill-btn">聊聊你的需求<i>+</i></a>
       <a href="./projects/" class="ghost-btn">看作品集<i>→</i></a>
+    </div>
+  </div>
+</section>
+
+<section class="band b-grey" id="about">
+  <div class="inner sec">
+    <span class="tag">About</span>
+    <h2>擅長從商業目標出發</h2>
+    <p class="about-lead">提供品牌規劃、設計、開發一站式解決方案</p>
+    <p class="about-body">從廣告行銷到 UIUX 網站開發，LOOOK 陪伴品牌完成數位升級，讓改變發揮影響力。</p>
+    <p class="about-scope">服務領域涵蓋企業官網 · 商業設計 · 行銷策略與執行</p>
+
+    <div class="stats">
+      <div class="stat"><b>8</b><span>年商業設計</span></div>
+      <div class="stat"><b>16</b><span>件作品</span></div>
+      <div class="stat"><b>9</b><span>件群眾集資</span></div>
+    </div>
+
+    <div class="brands">
+      <h5>合作品牌</h5>
+      <ul>
+          <li><img loading="lazy" src="/projects/images/brands/logo-08.webp" alt="SHARP"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-02.webp" alt="PHILIPS"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-03.webp" alt="Belkin"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-11.webp" alt="BLAUPUNKT"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-12.webp" alt="LG"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-05.webp" alt="MYFEEL"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-09.webp" alt="MARAIS"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-07.webp" alt="NICONICO"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-01.webp" alt="FURIMORI"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-06.webp" alt="gym mars"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-04.webp" alt="Legin"></li>
+          <li><img loading="lazy" src="/projects/images/brands/logo-10.webp" alt="MARS 戰神"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band b-white" id="work">
+  <div class="inner sec">
+    <span class="tag">Selected Work</span>
+    <h2>精選作品</h2>
+    <div class="picks">
+        <a class="pick-card" href="/projects/project-PHILIPS.html">
+          <div class="ph"><img loading="lazy" src="/projects/images/work/philips/cover.webp" alt="PHILIPS 白小奈"></div>
+          <div class="cap"><h4>PHILIPS 白小奈</h4><em>Crowdfunding</em></div>
+        </a>
+        <a class="pick-card" href="/projects/project-zangan.html">
+          <div class="ph"><img loading="lazy" src="/projects/images/Project/cover-zangan.webp" alt="蘵感美學補習班"></div>
+          <div class="cap"><h4>蘵感美學補習班</h4><em>UI/UX · Front-end</em></div>
+        </a>
+        <a class="pick-card" href="/projects/project-gym-mars.html">
+          <div class="ph"><img loading="lazy" src="/projects/images/work/gym-mars/cover-8.webp" alt="gym mars 健身房"></div>
+          <div class="cap"><h4>gym mars 健身房</h4><em>Monthly</em></div>
+        </a>
+        <a class="pick-card" href="/projects/project-marais-618.html">
+          <div class="ph"><img loading="lazy" src="/projects/images/work/marais-618/cover-7.webp" alt="MARAIS 618"></div>
+          <div class="cap"><h4>MARAIS 618</h4><em>Campaign</em></div>
+        </a>
+        <a class="pick-card" href="/projects/project-sharp-hairdryer.html">
+          <div class="ph"><img loading="lazy" src="/projects/images/work/sharp-hairdryer/cover-1.webp" alt="SHARP 雙氣流吹風機"></div>
+          <div class="cap"><h4>SHARP 雙氣流吹風機</h4><em>Crowdfunding</em></div>
+        </a>
+        <a class="pick-card" href="/projects/project-legin.html">
+          <div class="ph"><img loading="lazy" src="/projects/images/work/legin%20%E7%9A%AE%E6%8B%89%E6%8F%90%E6%96%AF/cover-6.webp" alt="Legin 皮拉提斯"></div>
+          <div class="cap"><h4>Legin 皮拉提斯</h4><em>Social</em></div>
+        </a>
+    </div>
+    <div class="picks-more">
+      <a href="/projects/" class="ghost-btn">看全部 16 件作品<i>→</i></a>
     </div>
   </div>
 </section>
@@ -394,9 +500,9 @@ a{color:inherit}
         <h5>Pages</h5>
         <ul>
           <li><a href="#pricing">服務與報價</a></li>
+          <li><a href="#about">關於 LOOOK</a></li>
           <li><a href="#process">合作流程</a></li>
           <li><a href="./projects/">作品集</a></li>
-          <li><a href="./projects/about.html">關於我</a></li>
         </ul>
       </div>
       <div>
@@ -408,8 +514,8 @@ a{color:inherit}
       </div>
     </div>
     <div class="mark">
-      <b><i>©</i>Vera</b>
-      <span>© 2026 Vera Liu — 網站設計 · 品牌視覺 · 台北</span>
+      <b><i>©</i>LOOOK</b>
+      <span>© 2026 LOOOK — 網站設計 · 品牌視覺 · 台北</span>
     </div>
   </div>
 </footer>

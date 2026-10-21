@@ -8,13 +8,13 @@ const SITE_NEW = {
   resume: "./Vera Resume.pdf",
   home: "/",
   projects: "./index.html",
-  about: "./about.html",
+  about: "/#about",
 };
 
 const navHTML = `
 <header class="nav">
   <div class="nav-inner">
-    <a href="${SITE_NEW.home}" class="brand">Vera <span>· Designer</span></a>
+    <a href="${SITE_NEW.home}" class="brand">LOOOK <span>· Design</span></a>
     <nav class="nav-links" id="navLinks">
       <a href="${SITE_NEW.home}">服務與報價</a>
       <a href="${SITE_NEW.projects}">Projects</a>
@@ -25,7 +25,6 @@ const navHTML = `
         <a href="${SITE_NEW.projects}?cat=ad">廣告圖設計</a>
         <a href="${SITE_NEW.projects}?cat=social">貼文 / 限時動態</a>
       </div>
-      <a href="${SITE_NEW.about}">About</a>
       <a href="${SITE_NEW.line}" target="_blank" rel="noopener" class="nav-cta">Get in touch</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
@@ -40,11 +39,10 @@ const footHTML = `
   <div class="wrap">
     <p class="cta">想合作或聊聊？<br><a href="mailto:${SITE_NEW.email}">${SITE_NEW.email}</a></p>
     <div class="foot-row">
-      <span>© <span id="yr"></span> Vera — Taipei, Taiwan</span>
+      <span>© <span id="yr"></span> LOOOK — Taipei, Taiwan</span>
       <span class="links">
         <a href="${SITE_NEW.home}">服務與報價</a>
-        <a href="${SITE_NEW.about}">About</a>
-        <a href="mailto:${SITE_NEW.email}">Email</a>
+          <a href="mailto:${SITE_NEW.email}">Email</a>
         <a href="${SITE_NEW.line}" target="_blank" rel="noopener">LINE</a>
       </span>
     </div>

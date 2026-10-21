@@ -43,7 +43,10 @@ p{margin-top:14px;color:var(--muted);font-size:14.5px}
   // 例：/project-belkin.html → /projects/project-belkin.html
   var p = location.pathname.replace(/^\/+/, "");
   var target = "/projects/";
-  if (/^(project-.*|about|index)\.html$/i.test(decodeURIComponent(p))) {
+  var dp = decodeURIComponent(p);
+  if (/^(projects\/)?about\.html$/i.test(dp)) {
+    target = "/#about";                      // 關於頁已併入首頁
+  } else if (/^(project-.*|index)\.html$/i.test(dp)) {
     target = "/projects/" + p;
   } else if (/^(css|js|images)\//i.test(p)) {
     target = "/projects/" + p;
