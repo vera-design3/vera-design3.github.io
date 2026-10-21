@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1300" viewBox="0 0 1000 1300">
+<rect width="1000" height="1300" fill="#EDEDEA"/>
+<rect x="100" y="182" width="800" height="806" rx="10" fill="#FFF" stroke="#DDD" stroke-width="2"/>
+<rect x="140" y="260" width="400" height="16" rx="8" fill="#D8D8D4"/>
+<rect x="140" y="338" width="600" height="10" rx="5" fill="#E6E6E2"/>
+<rect x="140" y="390" width="500" height="10" rx="5" fill="#E6E6E2"/>
+<text x="500" y="1144" font-family="monospace" font-size="28" fill="#A9A9A4"
+ text-anchor="middle" letter-spacing="3">MOCKUP　待替換</text></svg>
