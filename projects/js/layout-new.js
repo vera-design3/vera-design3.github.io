@@ -14,7 +14,7 @@ const SITE_NEW = {
 const navHTML = `
 <header class="nav">
   <div class="nav-inner">
-    <a href="${SITE_NEW.home}" class="brand">LOOOK <span>· Design</span></a>
+    <a href="${SITE_NEW.home}" class="brand">Vera <span>· Design</span></a>
     <nav class="nav-links" id="navLinks">
       <a href="${SITE_NEW.home}">服務與報價</a>
       <a href="${SITE_NEW.projects}">Projects</a>
@@ -39,7 +39,7 @@ const footHTML = `
   <div class="wrap">
     <p class="cta">想合作或聊聊？<br><a href="mailto:${SITE_NEW.email}">${SITE_NEW.email}</a></p>
     <div class="foot-row">
-      <span>© <span id="yr"></span> LOOOK — Taipei, Taiwan</span>
+      <span>© <span id="yr"></span> Vera — Taipei, Taiwan</span>
       <span class="links">
         <a href="${SITE_NEW.home}">服務與報價</a>
           <a href="mailto:${SITE_NEW.email}">Email</a>

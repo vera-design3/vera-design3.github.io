@@ -79,18 +79,36 @@ a{color:inherit}
 /* Hero：滿版圖＋白字疊壓 */
 .hero-band{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--dark)}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
-.hero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(10,13,10,.55) 0%,rgba(10,13,10,.15) 38%,rgba(10,13,10,.78) 100%)}
+#hero-dots{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-bg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(19,27,31,.8) 0%,transparent 24%,transparent 60%,rgba(19,27,31,.92) 100%),
+    radial-gradient(ellipse 125% 95% at 50% 45%, transparent 45%, rgba(19,27,31,.7) 100%)}
 .hero-in{position:relative;z-index:1;width:100%;max-width:var(--w);margin:0 auto;
   padding:0 28px 72px;color:#fff}
 .hero-in h1{font-size:clamp(34px,5.2vw,68px);line-height:1.16;font-weight:600;letter-spacing:-.035em;
   max-width:none;text-shadow:0 2px 40px rgba(0,0,0,.25)}
-.hero-side{position:absolute;right:28px;bottom:76px;z-index:1;text-align:right;color:#fff;max-width:30ch}
-.hero-side p{font-size:14.5px;line-height:1.9;opacity:.86}
-.hero-side .mini{margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
-  text-transform:uppercase;opacity:.6}
-.hero-acts{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+/* 打字機：JS 逐字輸出，只跑一次不循環。min-height 佔位，字清空時版面不會跳 */
+.hero-in h1 span{display:block;min-height:1.16em}
+.tw span.typing::after{content:"";display:inline-block;width:2px;height:.84em;
+  margin-left:4px;vertical-align:-1px;background:#fff;
+  animation:tw-caret .72s step-end infinite}
+@keyframes tw-caret{50%{opacity:0}}
+
+/* 打完字才讓副標與按鈕進場 */
+.hero-sub,.hero-acts{opacity:0;transform:translateY(10px);
+  transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.hero-ready .hero-sub,.hero-ready .hero-acts{opacity:1;transform:none}
+.hero-ready .hero-acts{transition-delay:.12s}
+
+@media (prefers-reduced-motion:reduce){
+  .tw span.typing::after{display:none}
+  .hero-sub,.hero-acts{opacity:1;transform:none;transition:none}
+}
+
+.hero-sub{margin:22px 0 0;font-size:15.5px;line-height:1.95;
+  color:rgba(255,255,255,.82)}
+.hero-acts{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
 .hero-acts .pill-btn{background:#fff;color:var(--ink)}
 .hero-acts .pill-btn:hover{opacity:.88}
 .hero-acts .ghost-btn{display:inline-flex;align-items:center;gap:9px;
@@ -101,17 +119,15 @@ a{color:inherit}
   font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
 
 /* 導覽疊在深色 Hero 上 */
-.nav.over{background:transparent;border-bottom-color:rgba(255,255,255,.14)}
-.nav.over .nav-grp{background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18)}
+.nav.over{background:transparent;border-bottom-color:transparent;
+  backdrop-filter:none;-webkit-backdrop-filter:none}
+.nav.over .nav-grp{background:transparent;backdrop-filter:none;border:0}
 .nav.over .brand,.nav.over .nav-l a{color:#fff}
 .nav.over .nav-l a:hover{background:rgba(255,255,255,.18)}
 .nav.over .pill-btn{background:#fff;color:var(--ink)}
 .nav.over .burger{border-color:rgba(255,255,255,.4)}
 .nav.over .burger span{background:#fff}
 
-@media (max-width:860px){
-  .hero-side{position:static;text-align:left;margin-top:28px;max-width:none}
-}
 @media (max-width:640px){
   .hero-band{min-height:78vh}
   .hero-in{padding:0 20px 56px}
@@ -128,12 +144,8 @@ a{color:inherit}
 
 /* 編號列 */
 .rows{margin-top:44px;border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:44px 1fr auto 40px;gap:22px;align-items:center;
+.row{display:grid;grid-template-columns:44px 1fr auto;gap:22px;align-items:center;
   padding:22px 4px;border-bottom:1px solid var(--line);transition:background .16s}
-.arw{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;
-  border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:13px;
-  transition:.18s;justify-self:end}
-.arw:hover{background:var(--ink);border-color:var(--ink);color:var(--lime)}
 .row:hover{background:rgba(0,0,0,.018)}
 .n{font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.06em}
 .nm{font-size:16px;font-weight:500;letter-spacing:-.005em}
@@ -153,17 +165,17 @@ a{color:inherit}
 
 /* 包月三欄 */
 .tiers{margin-top:18px;border-top:1px solid var(--line)}
-.thd{display:grid;grid-template-columns:44px 1fr 124px 138px 40px;gap:20px;padding:11px 4px;border-bottom:1px solid var(--line)}
+.thd{display:grid;grid-template-columns:44px 1fr 124px 138px;gap:20px;padding:11px 4px;border-bottom:1px solid var(--line)}
 .thd span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink-2);text-align:right}
 .thd span:first-child,.thd span:nth-child(2){text-align:left}
-.trow{display:grid;grid-template-columns:44px 1fr 124px 138px 40px;gap:20px;align-items:center;
+.trow{display:grid;grid-template-columns:44px 1fr 124px 138px;gap:20px;align-items:center;
   padding:20px 4px;border-bottom:1px solid var(--line);transition:background .16s}
 .trow:hover{background:rgba(0,0,0,.018)}
 .trow .c{text-align:right;white-space:nowrap}
 .trow .c b{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .trow .c u{text-decoration:none;font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--ink-2);margin-left:4px}
-.trow.pick{background:var(--white);box-shadow:inset 3px 0 0 var(--lime)}
+.trow.pick{background:rgba(211,243,78,.18)}
 .chip{display:inline-block;background:var(--lime);font-family:var(--mono);font-size:9.5px;
   letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-left:10px;vertical-align:2px}
 .note{margin-top:20px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-2)}
@@ -197,55 +209,46 @@ a{color:inherit}
 
 /* 關於：置中・弧線標記・三類・捲動漸顯 */
 .about-band{position:relative;overflow:hidden}
-.arc{position:absolute;left:50%;top:0;width:150vw;height:150vw;max-width:1900px;max-height:1900px;
-  transform:translate(-50%,-62%);border:1px dashed #CFCFC9;border-radius:50%;pointer-events:none}
 .about-in{position:relative;z-index:1;text-align:center}
 .orb{width:76px;height:76px;border-radius:50%;margin:0 auto;
-  background:radial-gradient(circle at 34% 30%,#3D4A2E,var(--dark));
-  display:grid;place-items:center;color:var(--lime);
+  background:var(--lime);
+  display:grid;place-items:center;color:var(--ink);
   font-family:var(--mono);font-size:11px;letter-spacing:.1em;
-  box-shadow:0 0 0 7px var(--grey),0 0 0 8px #DCDCD6}
+}
 .about-in h2{margin-top:38px;font-size:clamp(23px,3.4vw,36px);font-weight:600;
-  letter-spacing:-.025em;line-height:1.42;max-width:22ch;margin-left:auto;margin-right:auto}
-.about-in .sub{margin:18px auto 0;max-width:46ch;font-size:15px;line-height:1.95;color:var(--ink-3)}
-.about-in .mini{margin-top:14px;font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+  letter-spacing:-.025em;line-height:1.42;max-width:21em;margin-left:auto;margin-right:auto}
 
 .trio{margin-top:66px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  border-top:1px solid var(--line)}
 .trio-item{background:var(--grey);padding:34px 26px;text-align:left}
 .trio-item .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink-2)}
 .trio-item h3{margin-top:14px;font-size:17px;font-weight:600;letter-spacing:-.015em}
 .trio-item p{margin-top:12px;font-size:13.5px;line-height:1.9;color:var(--ink-3)}
 
-.stats{margin-top:58px;display:flex;gap:64px;justify-content:center}
 .brands{margin-top:52px;padding-top:28px;border-top:1px solid var(--line)}
 .brands ul{justify-content:center}
 
 /* 捲動漸顯：只用在這一區 */
-.rise{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rise{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);transition-delay:var(--d,0ms)}
 .rise.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;transition:none}}
 
-@media (max-width:860px){ .trio{grid-template-columns:1fr} .stats{gap:34px} }
+@media (max-width:860px){ .trio{grid-template-columns:1fr} }
 @media (max-width:640px){
   .orb{width:62px;height:62px}
   .trio-item{padding:26px 20px}
-  .stats{gap:18px}
 }
 .brands h5{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-2);margin-bottom:20px}
 .brands ul{list-style:none;display:flex;flex-wrap:wrap;gap:16px 34px;align-items:center;justify-content:center}
-.brands img{height:26px;width:auto;opacity:.5;filter:grayscale(1);transition:.2s}
-.brands li:hover img{opacity:.9;filter:grayscale(0)}
-.stat b{display:block;font-size:clamp(30px,4vw,44px);font-weight:600;letter-spacing:-.04em;line-height:1}
-.stat span{display:block;margin-top:9px;font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.brands img{height:26px;width:auto;transition:.2s}
 @media (max-width:640px){ .brands img{height:20px} }
 
 /* 精選作品：不規則作品牆 */
-.wall{margin-top:44px;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.wk{position:relative;display:block;text-decoration:none;overflow:hidden;border-radius:14px;background:var(--grey)}
+.wall{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+/* 封面素材一律 800x1000，格子就用 4/5，object-fit:cover 才不會裁到字 */
+.wk{position:relative;display:block;text-decoration:none;overflow:hidden;border-radius:14px;
+  background:var(--grey);aspect-ratio:4/5}
 .wk img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
 .wk:hover img{transform:scale(1.035)}
 .wk .meta{position:absolute;left:0;right:0;bottom:0;padding:44px 20px 18px;
@@ -256,34 +259,20 @@ a{color:inherit}
 .wk h4{font-size:14.5px;font-weight:500;color:#fff;letter-spacing:-.005em}
 .wk em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.09em;
   text-transform:uppercase;color:var(--lime);white-space:nowrap}
-/* 版位：大小不一的拼貼 */
-.wk.a{grid-column:span 4;aspect-ratio:16/10}
-.wk.b{grid-column:span 2;aspect-ratio:4/5}
-.wk.c{grid-column:span 2;aspect-ratio:1/1}
-.wk.d{grid-column:span 2;aspect-ratio:1/1}
-.wk.e{grid-column:span 2;aspect-ratio:1/1}
-.wk.f{grid-column:span 3;aspect-ratio:3/2}
-.wk.g{grid-column:span 3;aspect-ratio:3/2}
-.picks-more{margin-top:34px}
 
 @media (max-width:860px){
-  .wall{grid-template-columns:repeat(4,1fr)}
-  .wk.a{grid-column:span 4}
-  .wk.b,.wk.c,.wk.d,.wk.e{grid-column:span 2}
-  .wk.f,.wk.g{grid-column:span 4;aspect-ratio:16/9}
-  .wk .meta{opacity:1;transform:none}
+  .wall{grid-template-columns:repeat(2,1fr)}
+  /* 格子變窄後，em 的 nowrap 會把 h4 擠成一字一行，改成上下排 */
+  .wk .meta{opacity:1;transform:none;flex-direction:column;align-items:flex-start;gap:3px;
+    padding:38px 16px 14px}
 }
 @media (max-width:640px){
   .wall{grid-template-columns:repeat(2,1fr);gap:10px}
-  .wk.a,.wk.f,.wk.g{grid-column:span 2;aspect-ratio:16/10}
-  .wk.b,.wk.c,.wk.d,.wk.e{grid-column:span 1;aspect-ratio:1/1}
 }
 
-@media (max-width:860px){ .picks{grid-template-columns:repeat(2,1fr)} .stats{gap:34px} }
+@media (max-width:860px){ .picks{grid-template-columns:repeat(2,1fr)} }
 @media (max-width:640px){
   .picks{grid-template-columns:repeat(2,1fr);gap:12px}
-  .stats{grid-template-columns:repeat(3,1fr);gap:18px}
-  .stat b{font-size:26px}
   .brands img{height:20px}
 }
 
@@ -366,7 +355,7 @@ a{color:inherit}
 <header class="band b-white nav over" id="nav">
   <div class="inner">
     <div class="nav-grp">
-      <a href="./" class="brand">©LOOOK</a>
+      <a href="./" class="brand">©Vera</a>
       <nav class="nav-l" id="navL">
         <a href="#about">關於</a>
         <a href="#work">作品</a>
@@ -382,52 +371,41 @@ a{color:inherit}
   </div>
 </header>
 
+<noscript><style>.hero-sub,.hero-acts{opacity:1;transform:none}</style></noscript>
 <section class="hero-band">
-  <div class="hero-bg"><img src="/assets/placeholder/hero.svg" alt=""></div>
+  <div class="hero-bg"><canvas id="hero-dots"></canvas></div>
   <div class="hero-in">
-    <h1>從網站到視覺，<br>設計品牌被看見的每一刻</h1>
+    <h1 class="tw"><span>從網站到視覺，</span><span>設計品牌被看見的每一刻</span></h1>
+    <p class="hero-sub">從廣告行銷到 UIUX 網站開發，陪伴品牌完成數位升級，讓改變發揮影響力。</p>
     <div class="hero-acts">
       <a href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" class="pill-btn">聊聊你的需求<i>+</i></a>
       <a href="#work" class="ghost-btn">看作品<i>→</i></a>
     </div>
   </div>
-  <div class="hero-side">
-    <p>擅長從商業目標出發，提供品牌規劃、設計、開發一站式解決方案。</p>
-    <p class="mini">企業官網 · 商業設計 · 行銷策略與執行</p>
-  </div>
   <span class="hero-scroll">Scroll</span>
 </section>
 
 <section class="band b-grey about-band" id="about">
-  <span class="arc" aria-hidden="true"></span>
   <div class="inner sec about-in">
-    <div class="orb rise">Why</div>
+    <div class="orb rise">About</div>
     <h2 class="rise">擅長從商業目標出發<br>提供品牌規劃、設計、開發一站式解決方案</h2>
-    <p class="sub rise">從廣告行銷到 UIUX 網站開發，LOOOK 陪伴品牌完成數位升級，讓改變發揮影響力。</p>
-    <p class="mini rise">服務領域涵蓋企業官網 · 商業設計 · 行銷策略與執行</p>
 
     <div class="trio">
         <div class="trio-item rise">
           <span class="n">01</span>
           <h3>企業官網</h3>
-          <p>〔假字〕形象網站、一頁式與產品介紹頁。從資訊架構、視覺到切版上線一個人完成，交付可直接使用的網頁。</p>
+          <p>形象網站、一頁式與產品介紹頁。從資訊架構、視覺到切版上線一個人完成，交付可直接使用的網頁。</p>
         </div>
         <div class="trio-item rise">
           <span class="n">02</span>
           <h3>商業設計</h3>
-          <p>〔假字〕集資募資頁、廣告素材、社群貼文視覺。依行銷目的調整畫面重點，做出看得懂也願意行動的版面。</p>
+          <p>集資募資頁、廣告素材、社群貼文視覺。依行銷目的調整畫面重點，做出看得懂也願意行動的版面。</p>
         </div>
         <div class="trio-item rise">
           <span class="n">03</span>
           <h3>行銷策略與執行</h3>
-          <p>〔假字〕內容方向與主題規劃，可配合投放夥伴一起顧素材與成效，不用另外找人對接。</p>
+          <p>內容方向與主題規劃，可配合投放夥伴一起顧素材與成效，不用另外找人對接。</p>
         </div>
-    </div>
-
-    <div class="stats rise">
-      <div class="stat"><b>8</b><span>年商業設計</span></div>
-      <div class="stat"><b>16</b><span>件作品</span></div>
-      <div class="stat"><b>9</b><span>件群眾集資</span></div>
     </div>
 
     <div class="brands rise">
@@ -455,37 +433,38 @@ a{color:inherit}
     <span class="tag">Selected Work</span>
     <h2>精選作品</h2>
     <div class="wall">
-      <a class="wk a" href="/projects/project-PHILIPS.html">
+      <a class="wk" href="/projects/project-PHILIPS.html">
         <img loading="lazy" src="/projects/images/work/philips/cover.webp" alt="PHILIPS 白小奈">
         <div class="meta"><h4>PHILIPS 白小奈</h4><em>Crowdfunding</em></div>
       </a>
-      <a class="wk b" href="/projects/project-zangan.html">
+      <a class="wk" href="/projects/project-zangan.html">
         <img loading="lazy" src="/projects/images/Project/cover-zangan.webp" alt="蘵感美學補習班">
         <div class="meta"><h4>蘵感美學補習班</h4><em>UI/UX · Front-end</em></div>
       </a>
-      <a class="wk c" href="/projects/project-gym-mars.html">
+      <a class="wk" href="/projects/project-gym-mars.html">
         <img loading="lazy" src="/projects/images/work/gym-mars/cover-8.webp" alt="gym mars 健身房">
         <div class="meta"><h4>gym mars 健身房</h4><em>Monthly</em></div>
       </a>
-      <a class="wk d" href="/projects/project-marais-618.html">
+      <a class="wk" href="/projects/project-marais-618.html">
         <img loading="lazy" src="/projects/images/work/marais-618/cover-7.webp" alt="MARAIS 618">
         <div class="meta"><h4>MARAIS 618</h4><em>Campaign</em></div>
       </a>
-      <a class="wk e" href="/projects/project-legin.html">
+      <a class="wk" href="/projects/project-legin.html">
         <img loading="lazy" src="/projects/images/work/legin%20%E7%9A%AE%E6%8B%89%E6%8F%90%E6%96%AF/cover-6.webp" alt="Legin 皮拉提斯">
         <div class="meta"><h4>Legin 皮拉提斯</h4><em>Social</em></div>
       </a>
-      <a class="wk f" href="/projects/project-sharp-hairdryer.html">
+      <a class="wk" href="/projects/project-sharp-hairdryer.html">
         <img loading="lazy" src="/projects/images/work/sharp-hairdryer/cover-1.webp" alt="SHARP 雙氣流吹風機">
         <div class="meta"><h4>SHARP 雙氣流吹風機</h4><em>Crowdfunding</em></div>
       </a>
-      <a class="wk g" href="/projects/project-belkin.html">
+      <a class="wk" href="/projects/project-belkin.html">
         <img loading="lazy" src="/projects/images/work/belkin/cover.webp" alt="Belkin Immerse">
         <div class="meta"><h4>Belkin Immerse</h4><em>Crowdfunding</em></div>
       </a>
-    </div>
-    <div class="picks-more">
-      <a href="/projects/" class="ghost-btn">看全部 16 件作品<i>→</i></a>
+      <a class="wk" href="/projects/project-furimori.html">
+        <img loading="lazy" src="/projects/images/work/FURIMORI%20%E5%92%96%E5%95%A1%E6%A9%9F/cover-3.webp" alt="FURIMORI 咖啡機">
+        <div class="meta"><h4>FURIMORI 咖啡機</h4><em>Crowdfunding</em></div>
+      </a>
     </div>
   </div>
 </section>
@@ -503,12 +482,10 @@ a{color:inherit}
       <div class="rows">
         <div class="row"><span class="n">01</span>
           <span class="nm">一頁式網站</span>
-          <span class="pr">NT$ 15,000<u>起</u></span>
-          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+          <span class="pr">NT$ 15,000<u>起</u></span></div>
         <div class="row"><span class="n">02</span>
           <span class="nm">品牌形象網站<small class="en">3–5 pages</small></span>
-          <span class="pr">NT$ 35,000<u>起</u></span>
-          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+          <span class="pr">NT$ 35,000<u>起</u></span></div>
       </div>
     </div>
 
@@ -519,16 +496,13 @@ a{color:inherit}
       <div class="rows">
         <div class="row"><span class="n">01</span>
           <span class="nm">產品介紹頁</span>
-          <span class="pr">NT$ 15,000<u>起</u></span>
-          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+          <span class="pr">NT$ 15,000<u>起</u></span></div>
         <div class="row"><span class="n">02</span>
           <span class="nm">廣告圖、Banner、社群貼文視覺<small class="en">min. 3 pcs</small></span>
-          <span class="pr">NT$ 1,000<u>／張</u></span>
-          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+          <span class="pr">NT$ 1,000<u>／張</u></span></div>
         <div class="row"><span class="n">03</span>
           <span class="nm">廣告投放</span>
-          <span class="pr">可合作洽談</span>
-          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+          <span class="pr">可合作洽談</span></div>
       </div>
     </div>
 
@@ -542,23 +516,19 @@ a{color:inherit}
         <div class="trow"><span class="n">01</span>
           <span class="nm">每月 3 張</span>
           <span class="c" data-k="純視覺"><b>NT$ 2,700</b><u>／月</u></span>
-          <span class="c" data-k="含行銷規劃"><b>NT$ 6,200</b><u>／月</u></span>
-          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+          <span class="c" data-k="含行銷規劃"><b>NT$ 6,200</b><u>／月</u></span></div>
         <div class="trow"><span class="n">02</span>
           <span class="nm">每月 6 張</span>
           <span class="c" data-k="純視覺"><b>NT$ 4,800</b><u>／月</u></span>
-          <span class="c" data-k="含行銷規劃"><b>NT$ 11,400</b><u>／月</u></span>
-          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+          <span class="c" data-k="含行銷規劃"><b>NT$ 11,400</b><u>／月</u></span></div>
         <div class="trow pick"><span class="n">03</span>
           <span class="nm">每月 9 張<span class="chip">Popular</span></span>
           <span class="c" data-k="純視覺"><b>NT$ 6,750</b><u>／月</u></span>
-          <span class="c" data-k="含行銷規劃"><b>NT$ 16,400</b><u>／月</u></span>
-          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+          <span class="c" data-k="含行銷規劃"><b>NT$ 16,400</b><u>／月</u></span></div>
         <div class="trow"><span class="n">04</span>
           <span class="nm">每月 12 張</span>
           <span class="c" data-k="純視覺"><b>NT$ 8,400</b><u>／月</u></span>
-          <span class="c" data-k="含行銷規劃"><b>NT$ 20,400</b><u>／月</u></span>
-          <a class="arw" href="https://line.me/ti/p/~@208bjlaw" target="_blank" rel="noopener" aria-label="詢問">→</a></div>
+          <span class="c" data-k="含行銷規劃"><b>NT$ 20,400</b><u>／月</u></span></div>
       </div>
     </div>
 
@@ -615,7 +585,7 @@ a{color:inherit}
         <h5>Pages</h5>
         <ul>
           <li><a href="#pricing">服務與報價</a></li>
-          <li><a href="#about">關於 LOOOK</a></li>
+          <li><a href="#about">關於 Vera</a></li>
           <li><a href="#process">合作流程</a></li>
           <li><a href="./projects/">作品集</a></li>
         </ul>
@@ -629,14 +599,30 @@ a{color:inherit}
       </div>
     </div>
     <div class="mark">
-      <b><i>©</i>LOOOK</b>
-      <span>© 2026 LOOOK — 網站設計 · 品牌視覺 · 台北</span>
+      <b><i>©</i>Vera</b>
+      <span>© 2026 Vera — 網站設計 · 品牌視覺 · 台北</span>
     </div>
   </div>
 </footer>
 
 <script>
 (function(){
+  /* 其餘區塊直接用選擇器補上，不動標記 */
+  function mark(sel){
+    document.querySelectorAll(sel).forEach(function(el){ el.classList.add('rise'); });
+  }
+  function markGroup(sel,step){
+    document.querySelectorAll(sel).forEach(function(el,i){
+      el.classList.add('rise'); el.style.setProperty('--d',(i*step)+'ms');
+    });
+  }
+  mark('#work .tag, #work h2, #pricing .tag, #pricing h2,'
+     + '#process .tag, #process h2, #contact .tag, #contact h2, #contact .cta p, #contact .acts');
+  markGroup('.wall > .wk', 70);
+  markGroup('#pricing .feat', 110);
+  markGroup('.trio > .trio-item', 110);
+  /* .step 刻意不加：合作流程的進度條會量 .dot 座標，加位移會量錯 */
+
   var els=[].slice.call(document.querySelectorAll('.rise'));
   if(!els.length) return;
   if(matchMedia('(prefers-reduced-motion:reduce)').matches){
@@ -645,13 +631,41 @@ a{color:inherit}
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){
       if(!e.isIntersecting) return;
-      var i=els.indexOf(e.target), base=els[0].closest('.trio')?0:0;
-      e.target.style.transitionDelay=(e.target.parentElement.classList.contains('trio')
-        ? [].indexOf.call(e.target.parentElement.children,e.target)*110 : 0)+'ms';
       e.target.classList.add('in'); io.unobserve(e.target);
     });
   },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e)});
+})();
+
+/* Hero 打字機：載入時跑一次，不循環 */
+(function(){
+  var h1=document.querySelector('.hero-band .tw');
+  if(!h1) return;
+  var hin=h1.closest('.hero-in'),
+      lines=[].slice.call(h1.querySelectorAll('span')),
+      full=lines.map(function(el){ return el.textContent; });
+
+  function showAll(){
+    lines.forEach(function(el,i){ el.textContent=full[i]; el.classList.remove('typing'); });
+    hin.classList.add('hero-ready');
+  }
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return showAll();
+
+  lines.forEach(function(el){ el.textContent=''; });
+
+  function type(i){
+    if(i>=lines.length){ hin.classList.add('hero-ready'); return; }
+    var el=lines[i], txt=full[i], n=0;
+    el.classList.add('typing');
+    var t=setInterval(function(){
+      el.textContent=txt.slice(0,++n);
+      if(n>=txt.length){
+        clearInterval(t); el.classList.remove('typing');
+        setTimeout(function(){ type(i+1); }, 120);
+      }
+    }, 70);
+  }
+  type(0);
 })();
 (function(){
   var nav=document.getElementById('nav'),hero=document.querySelector('.hero-band');
@@ -701,6 +715,129 @@ a{color:inherit}
     fill.style.height=Math.max(0,(d.top+d.height/2)-w.top-16)+'px';
   },{rootMargin:'0px 0px -42% 0px',threshold:0});
   steps.forEach(function(s){io.observe(s)});
+})();
+</script>
+<script>
+/* Hero 磁力點陣 */
+(function(){
+  var hero=document.querySelector('.hero-band'),
+      cv=document.getElementById('hero-dots');
+  if(!hero||!cv) return;
+  var ctx=cv.getContext('2d');
+
+  var K=.12, DAMP=.78;
+  var SPACING=46, BASE_R=1.2, MAX_R=2.6, PUSH=30, RADIUS=200; /* build() 依寬度重算 */
+  var BASE=[255,255,255], BASE_A=.16, ACC=[211,243,78], ACC_A=.72;
+
+  var dots=[],W=0,H=0,DPR=1,mx=-99999,my=-99999,
+      hovering=false,running=false,touching=false,lastW=0,lastH=0;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function tune(w){
+    if(w<520){      SPACING=30; PUSH=20; RADIUS=130; BASE_R=1.0; MAX_R=2.1; }
+    else if(w<900){ SPACING=38; PUSH=25; RADIUS=165; BASE_R=1.1; MAX_R=2.35; }
+    else {          SPACING=46; PUSH=30; RADIUS=200; BASE_R=1.2; MAX_R=2.6; }
+  }
+
+  function build(){
+    var r=cv.getBoundingClientRect();
+    W=Math.round(r.width); H=Math.round(r.height);
+    if(!W||!H) return;
+    lastW=W; lastH=H; tune(W);
+    DPR=Math.min(window.devicePixelRatio||1,2);
+    cv.width=W*DPR; cv.height=H*DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    var cols=Math.ceil(W/SPACING)+1, rows=Math.ceil(H/SPACING)+1,
+        ox0=(W-(cols-1)*SPACING)/2, oy0=(H-(rows-1)*SPACING)/2;
+    dots=[];
+    for(var j=0;j<rows;j++)for(var i=0;i<cols;i++){
+      var ox=ox0+i*SPACING, oy=oy0+j*SPACING;
+      dots.push({ox:ox,oy:oy,x:ox,y:oy,vx:0,vy:0});
+    }
+    draw(true);
+  }
+
+  function spring(d,tx,ty){
+    d.vx=(d.vx+(tx-d.x)*K)*DAMP; d.vy=(d.vy+(ty-d.y)*K)*DAMP;
+    d.x+=d.vx; d.y+=d.vy;
+  }
+
+  function draw(staticOnly){
+    ctx.clearRect(0,0,W,H);
+    var moved=0, hot=[];
+    ctx.beginPath();
+    ctx.fillStyle='rgba('+BASE[0]+','+BASE[1]+','+BASE[2]+','+BASE_A+')';
+    for(var n=0;n<dots.length;n++){
+      var d=dots[n], inf=0;
+      if(!staticOnly){
+        if(hovering){
+          var dx=d.ox-mx, dy=d.oy-my, dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<RADIUS){
+            var raw=1-dist/RADIUS, pf=raw*raw, len=dist||1e-4;
+            inf=raw*raw*(3-2*raw);
+            spring(d, d.ox+(dx/len)*PUSH*pf, d.oy+(dy/len)*PUSH*pf);
+          } else spring(d,d.ox,d.oy);
+        } else spring(d,d.ox,d.oy);
+      }
+      moved=Math.max(moved,Math.abs(d.vx)+Math.abs(d.vy),
+                           Math.abs(d.x-d.ox)+Math.abs(d.y-d.oy));
+      if(inf>0.008){ d._inf=inf; hot.push(d); }
+      else { ctx.moveTo(d.x+BASE_R,d.y); ctx.arc(d.x,d.y,BASE_R,0,6.2832); }
+    }
+    ctx.fill();
+    for(var h=0;h<hot.length;h++){
+      var p=hot[h], f=p._inf;
+      ctx.beginPath();
+      ctx.fillStyle='rgba('+Math.round(BASE[0]+(ACC[0]-BASE[0])*f)+','
+                          +Math.round(BASE[1]+(ACC[1]-BASE[1])*f)+','
+                          +Math.round(BASE[2]+(ACC[2]-BASE[2])*f)+','
+                          +(BASE_A+(ACC_A-BASE_A)*f).toFixed(3)+')';
+      ctx.arc(p.x,p.y,BASE_R+(MAX_R-BASE_R)*f,0,6.2832);
+      ctx.fill();
+    }
+    return moved;
+  }
+
+  function loop(){
+    var moved=draw(false);
+    if(!hovering && moved<0.02){
+      for(var n=0;n<dots.length;n++){var d=dots[n];d.x=d.ox;d.y=d.oy;d.vx=d.vy=0;}
+      draw(true); running=false; return;
+    }
+    requestAnimationFrame(loop);
+  }
+  function start(){ if(!running&&!reduce){running=true;requestAnimationFrame(loop);} }
+
+  function at(e){ var r=cv.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top; }
+  function endTouch(){ touching=false; hovering=false; start(); }
+
+  /* 滑鼠：移到哪推到哪。觸控：按住拖曳才推，不攔截捲動 */
+  hero.addEventListener('pointermove',function(e){
+    if(e.pointerType==='touch' && !touching) return;
+    at(e); hovering=true; start();
+  },{passive:true});
+  hero.addEventListener('pointerdown',function(e){
+    if(e.pointerType!=='touch') return;
+    touching=true; at(e); hovering=true; start();
+  },{passive:true});
+  hero.addEventListener('pointerup',endTouch,{passive:true});
+  hero.addEventListener('pointercancel',endTouch,{passive:true});
+  hero.addEventListener('pointerleave',function(e){
+    if(e.pointerType!=='touch'){ hovering=false; start(); }
+  });
+
+  /* iOS 捲動時網址列伸縮會狂發 resize，高度變化不大就不重建 */
+  var rt=null;
+  addEventListener('resize',function(){
+    clearTimeout(rt);
+    rt=setTimeout(function(){
+      var r=cv.getBoundingClientRect();
+      if(Math.round(r.width)===lastW && Math.abs(Math.round(r.height)-lastH)<120) return;
+      build();
+    },150);
+  });
+  build();
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(build);
 })();
 </script>
 </body>
