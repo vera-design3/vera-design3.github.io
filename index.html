@@ -85,8 +85,9 @@ a{color:inherit}
     linear-gradient(180deg,rgba(19,27,31,.8) 0%,transparent 24%,transparent 60%,rgba(19,27,31,.92) 100%),
     radial-gradient(ellipse 125% 95% at 50% 45%, transparent 45%, rgba(19,27,31,.7) 100%)}
 .hero-in{position:relative;z-index:1;width:100%;max-width:var(--w);margin:0 auto;
-  padding:0 28px 72px;color:#fff}
-.hero-in h1{font-size:clamp(34px,5.2vw,68px);line-height:1.16;font-weight:600;letter-spacing:-.035em;
+  padding:0 48px 72px;color:#fff}
+/* 中文方塊字不吃負字距，改成微正值 */
+.hero-in h1{font-size:clamp(32px,3.9vw,54px);line-height:1.2;font-weight:600;letter-spacing:.012em;
   max-width:none;text-shadow:0 2px 40px rgba(0,0,0,.25)}
 /* 打字機：JS 逐字輸出，只跑一次不循環。min-height 佔位，字清空時版面不會跳 */
 .hero-in h1 span{display:block;min-height:1.16em}
@@ -130,8 +131,12 @@ a{color:inherit}
 
 @media (max-width:640px){
   .hero-band{min-height:78vh}
-  .hero-in{padding:0 20px 56px}
-  .hero-in h1{font-size:clamp(30px,8.4vw,44px);line-height:1.18;max-width:none}
+  .hero-in{padding:0 32px 60px}
+  /* 7.2vw：第二行 11 個字在 320/360/390 都塞得下，且左右各留 32px */
+  .hero-in h1{font-size:clamp(22px,7vw,44px);line-height:1.26;max-width:none}
+  .hero-sub{margin-top:26px;font-size:14.5px}
+  .hero-acts{margin-top:30px}
+  .hero-scroll{left:32px}
   .hero-scroll{left:20px}
 }
 
@@ -343,8 +348,11 @@ a{color:inherit}
   .trow .c{grid-column:2;display:flex;justify-content:space-between;align-items:baseline;text-align:left}
   .trow .c::before{content:attr(data-k);font-family:var(--mono);font-size:10px;
     letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
-  .steps{padding-left:32px}
-  .step .dot{left:-32px;top:26px}
+  /* 32px 扣掉 30px 的圓點只剩 2px 空隙，圓點會貼著字 */
+  .steps{padding-left:50px}
+  .steps .rail-bg,.steps .rail-on{left:12px}
+  .step .dot{left:-50px;top:24px;width:26px;height:26px;font-size:10px}
+  .step{padding:22px 0}
   .cta{padding:64px 0}
   .foot .top{grid-template-columns:1fr;gap:26px}
 }
@@ -437,9 +445,9 @@ a{color:inherit}
         <img loading="lazy" src="/projects/images/work/philips/cover.webp" alt="PHILIPS 白小奈">
         <div class="meta"><h4>PHILIPS 白小奈</h4><em>Crowdfunding</em></div>
       </a>
-      <a class="wk" href="/projects/project-zangan.html">
-        <img loading="lazy" src="/projects/images/Project/cover-zangan.webp" alt="蘵感美學補習班">
-        <div class="meta"><h4>蘵感美學補習班</h4><em>UI/UX · Front-end</em></div>
+      <a class="wk" href="/projects/project-niconico-snack.html">
+        <img loading="lazy" src="/projects/images/work/niconico-snack/cover-2.webp" alt="NICONICO 小食曆">
+        <div class="meta"><h4>NICONICO 小食曆</h4><em>Crowdfunding</em></div>
       </a>
       <a class="wk" href="/projects/project-gym-mars.html">
         <img loading="lazy" src="/projects/images/work/gym-mars/cover-8.webp" alt="gym mars 健身房">
