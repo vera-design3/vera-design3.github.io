@@ -264,12 +264,17 @@ body.menu-open{overflow:hidden}
   color:var(--ink-2);margin-bottom:20px}
 /* 各家字標比例 1.9~6.0 差三倍，單用 height 會讓寬度失控；
    改成統一外框＋contain，每個 logo 的佔位面積才一致 */
-.brands ul{list-style:none;display:flex;flex-wrap:wrap;gap:18px 24px;justify-content:center}
-.brands li{display:grid;place-items:center;width:124px;height:38px}
-.brands img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transition:.2s}
+/* 用網格固定每排 6 個：flex-wrap 的最後一排會依數量浮動，
+   網格才能讓兩排的欄位垂直對齊 */
+.brands ul{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);
+  gap:38px 20px;justify-items:center;align-items:center;max-width:900px;margin:0 auto}
+.brands li{display:grid;place-items:center;width:100%;height:38px}
+/* max-*:100% 在格線項目上不一定解析得到父層高度（實測有圖跑到 65px），
+   所以直接用絕對像素限制 */
+.brands img{max-width:124px;max-height:38px;width:auto;height:auto;object-fit:contain;transition:.2s}
 
 /* 精選作品：不規則作品牆 */
-.wall{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.wall{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 /* 封面素材一律 800x1000，格子就用 4/5，object-fit:cover 才不會裁到字 */
 .wk{position:relative;display:block;text-decoration:none;overflow:hidden;border-radius:14px;
   background:var(--grey);aspect-ratio:4/5}
@@ -307,8 +312,9 @@ body.menu-open{overflow:hidden}
 }
 
 @media (max-width:640px){
-  .brands li{width:102px;height:32px}
-  .brands ul{gap:14px 16px}
+  .brands ul{grid-template-columns:repeat(3,1fr);gap:28px 12px}
+  .brands li{height:32px}
+  .brands img{max-width:102px;max-height:32px}
 }
 
 /* 流程 */
@@ -457,10 +463,6 @@ body.menu-open{overflow:hidden}
         <img loading="lazy" src="/projects/images/work/philips/cover.webp" alt="PHILIPS 白小奈">
         <div class="meta"><h4>PHILIPS 白小奈</h4><em>Crowdfunding</em></div>
       </a>
-      <a class="wk" href="/projects/project-niconico-snack.html">
-        <img loading="lazy" src="/projects/images/work/niconico-snack/cover-2.webp" alt="NICONICO 小食曆">
-        <div class="meta"><h4>NICONICO 小食曆</h4><em>Crowdfunding</em></div>
-      </a>
       <a class="wk" href="/projects/project-gym-mars.html">
         <img loading="lazy" src="/projects/images/work/gym-mars/cover-8.webp" alt="gym mars 健身房">
         <div class="meta"><h4>gym mars 健身房</h4><em>Monthly</em></div>
@@ -484,6 +486,14 @@ body.menu-open{overflow:hidden}
       <a class="wk" href="/projects/project-furimori.html">
         <img loading="lazy" src="/projects/images/work/FURIMORI%20%E5%92%96%E5%95%A1%E6%A9%9F/cover-3.webp" alt="FURIMORI 咖啡機">
         <div class="meta"><h4>FURIMORI 咖啡機</h4><em>Crowdfunding</em></div>
+      </a>
+      <a class="wk" href="/projects/project-newyear.html">
+        <img loading="lazy" src="/projects/images/work/newyear/cover.webp" alt="MARAIS 團圓年菜大賞">
+        <div class="meta"><h4>團圓年菜大賞</h4><em>Campaign</em></div>
+      </a>
+      <a class="wk" href="/projects/project-niconico-snack.html">
+        <img loading="lazy" src="/projects/images/work/niconico-snack/cover-2.webp" alt="NICONICO 小食曆">
+        <div class="meta"><h4>NICONICO 小食曆</h4><em>Crowdfunding</em></div>
       </a>
     </div>
     <div class="more-row">
@@ -759,11 +769,15 @@ body.menu-open{overflow:hidden}
 
   var K=.12, DAMP=.78;
   var SPACING=46, BASE_R=1.2, MAX_R=2.6, PUSH=30, RADIUS=200; /* build() 依寬度重算 */
-  var BASE=[255,255,255], BASE_A=.16, ACC=[211,243,78], ACC_A=.72;
+  /* 底層就是淡綠，游標附近只是變大變濃（同色相，不換色） */
+  var BASE=[211,243,78], BASE_A=.32, ACC=[211,243,78], ACC_A=.92;
 
   var dots=[],W=0,H=0,DPR=1,mx=-99999,my=-99999,
-      hovering=false,running=false,touching=false,lastW=0,lastH=0;
+      hovering=false,running=false,lastW=0,lastH=0;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* 沒有游標的裝置改成自動跑：用虛擬游標沿緩慢的利薩如曲線移動 */
+  var auto=matchMedia('(hover: none)').matches && !reduce;
+  var vt=0, inView=true;
 
   function tune(w){
     if(w<520){      SPACING=30; PUSH=20; RADIUS=130; BASE_R=1.0; MAX_R=2.1; }
@@ -830,7 +844,21 @@ body.menu-open{overflow:hidden}
     return moved;
   }
 
+  /* 自動模式：虛擬游標沿利薩如曲線走，兩軸週期不成整數比，路徑不會明顯重複 */
+  function autoStep(){
+    vt += 0.0042;
+    mx = W*(0.5 + 0.34*Math.sin(vt));
+    my = H*(0.5 + 0.27*Math.sin(vt*1.37 + 1.1));
+    hovering = true;
+  }
+
   function loop(){
+    if(auto){
+      if(!inView || document.hidden){ running=false; return; }  /* 看不到就別空轉耗電 */
+      autoStep();
+      draw(false);
+      requestAnimationFrame(loop); return;
+    }
     var moved=draw(false);
     if(!hovering && moved<0.02){
       for(var n=0;n<dots.length;n++){var d=dots[n];d.x=d.ox;d.y=d.oy;d.vx=d.vy=0;}
@@ -841,22 +869,23 @@ body.menu-open{overflow:hidden}
   function start(){ if(!running&&!reduce){running=true;requestAnimationFrame(loop);} }
 
   function at(e){ var r=cv.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top; }
-  function endTouch(){ touching=false; hovering=false; start(); }
 
-  /* 滑鼠：移到哪推到哪。觸控：按住拖曳才推，不攔截捲動 */
-  hero.addEventListener('pointermove',function(e){
-    if(e.pointerType==='touch' && !touching) return;
-    at(e); hovering=true; start();
-  },{passive:true});
-  hero.addEventListener('pointerdown',function(e){
-    if(e.pointerType!=='touch') return;
-    touching=true; at(e); hovering=true; start();
-  },{passive:true});
-  hero.addEventListener('pointerup',endTouch,{passive:true});
-  hero.addEventListener('pointercancel',endTouch,{passive:true});
-  hero.addEventListener('pointerleave',function(e){
-    if(e.pointerType!=='touch'){ hovering=false; start(); }
-  });
+  if(auto){
+    /* 捲出畫面或切到背景分頁就停，回來再續 */
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        inView = es[0].isIntersecting;
+        if(inView) start();
+      },{threshold:0}).observe(hero);
+    }
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) start(); });
+  }else{
+    hero.addEventListener('pointermove',function(e){
+      if(e.pointerType==='touch') return;
+      at(e); hovering=true; start();
+    },{passive:true});
+    hero.addEventListener('pointerleave',function(){ hovering=false; start(); });
+  }
 
   /* iOS 捲動時網址列伸縮會狂發 resize，高度變化不大就不重建 */
   var rt=null;
@@ -866,6 +895,7 @@ body.menu-open{overflow:hidden}
       var r=cv.getBoundingClientRect();
       if(Math.round(r.width)===lastW && Math.abs(Math.round(r.height)-lastH)<120) return;
       build();
+  if(auto) start();
     },150);
   });
   build();
