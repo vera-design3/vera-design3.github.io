@@ -41,7 +41,7 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid var(--line);
 }
 .nav-inner {
-  max-width: var(--maxw); margin: 0 auto; padding: 16px var(--pad);
+  max-width: var(--maxw); margin: 0 auto; padding: 16px 36px;
   display: flex; align-items: center; justify-content: space-between;
 }
 .brand { font-weight: 500; font-size: 15px; letter-spacing: -0.02em; }
@@ -313,11 +313,11 @@ main.project { max-width: 1340px; margin: 0 auto; }
     background: var(--surface);
     border-bottom: 1px solid var(--line);
     box-shadow: 0 16px 30px rgba(0,0,0,.12);
-    padding: 0 var(--pad);
+    padding: 0 36px;
     max-height: 0; overflow: hidden; opacity: 0; pointer-events: none;
     transition: max-height .32s ease, opacity .2s ease, padding .32s ease;
   }
-  .nav-links.open { max-height: 85vh; opacity: 1; pointer-events: auto; padding: 8px var(--pad) 20px; }
+  .nav-links.open { max-height: 85vh; opacity: 1; pointer-events: auto; padding: 8px 36px 20px; }
   .nav-links a { font-size: 17px; padding: 16px 2px; color: var(--ink); font-weight: 500; }
   .nav-links a:not(.nav-cta) { border-bottom: 1px solid var(--line); }
   .nav-cta {
