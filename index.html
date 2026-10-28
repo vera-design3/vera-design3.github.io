@@ -302,6 +302,9 @@ body.menu-open{overflow:hidden}
 
 @media (max-width:860px){
   .wall{grid-template-columns:repeat(2,1fr)}
+  /* 兩欄排不滿時最後一張會落單；只在奇數張時藏掉，
+     之後補到偶數就會自動顯示回來 */
+  .wall > .wk:last-child:nth-child(odd){display:none}
   /* 格子變窄後，em 的 nowrap 會把 h4 擠成一字一行，改成上下排 */
   .wk .meta{opacity:1;transform:none;flex-direction:column;align-items:flex-start;gap:3px;
     padding:38px 16px 14px;
